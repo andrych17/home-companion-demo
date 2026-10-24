@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
-import { HelpCircle, Phone, ArrowRight, ShieldCheck, Clock, FileQuestion } from "lucide-react";
+import { HelpCircle, Phone, FileQuestion } from "lucide-react";
 import FAQAccordion from "@/components/FAQAccordion";
 
 export const metadata: Metadata = {

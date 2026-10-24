@@ -15,7 +15,6 @@ import {
   CalendarCheck,
   Sparkles,
   Dog,
-  ShieldCheck,
   HelpCircle,
   MessageSquareHeart,
   Users,

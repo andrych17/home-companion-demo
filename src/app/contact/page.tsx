@@ -5,9 +5,7 @@ import {
   Mail,
   MapPin,
   Clock,
-  ShieldCheck,
   CheckCircle2,
-  Heart,
   MessageSquare,
 } from "lucide-react";
 import EnquiryForm from "@/components/EnquiryForm";

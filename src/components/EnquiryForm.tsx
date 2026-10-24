@@ -4,10 +4,7 @@ import React, { useState } from "react";
 import {
   Send,
   CheckCircle2,
-  Phone,
   Calendar,
-  MapPin,
-  Clock,
   Sparkles,
   Car,
   Flower2,

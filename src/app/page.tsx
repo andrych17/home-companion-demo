@@ -12,9 +12,6 @@ import {
   Phone,
   CheckCircle2,
   Heart,
-  Clock,
-  MapPin,
-  Users,
 } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import BentoWhyUs from "@/components/BentoWhyUs";

@@ -4,12 +4,9 @@ import { Metadata } from "next";
 import {
   Dog,
   CheckCircle2,
-  ShieldCheck,
   ArrowRight,
   Phone,
-  Heart,
   Bone,
-  MapPin,
 } from "lucide-react";
 
 export const metadata: Metadata = {

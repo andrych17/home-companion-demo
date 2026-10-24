@@ -4,12 +4,9 @@ import { Metadata } from "next";
 import {
   CalendarCheck,
   CheckCircle2,
-  ShieldCheck,
   ArrowRight,
   Phone,
-  Clock,
   FileText,
-  Hospital,
 } from "lucide-react";
 
 export const metadata: Metadata = {

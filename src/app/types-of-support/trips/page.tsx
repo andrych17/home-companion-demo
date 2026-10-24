@@ -3,14 +3,10 @@ import Link from "next/link";
 import { Metadata } from "next";
 import {
   Car,
-  MapPin,
   CheckCircle2,
-  Clock,
   ShieldCheck,
   ArrowRight,
   Phone,
-  Compass,
-  Heart,
 } from "lucide-react";
 
 export const metadata: Metadata = {

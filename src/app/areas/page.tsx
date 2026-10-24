@@ -2,11 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
 import {
-  MapPin,
   CheckCircle2,
   Car,
-  Clock,
-  ShieldCheck,
   Phone,
   ArrowRight,
   Compass,

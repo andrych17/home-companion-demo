@@ -5,10 +5,7 @@ import {
   HeartHandshake,
   Smartphone,
   MapPin,
-  Clock,
   ArrowRight,
-  Sparkles,
-  Award,
 } from "lucide-react";
 
 export default function BentoWhyUs() {

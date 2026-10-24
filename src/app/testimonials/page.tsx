@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
-import { Star, MessageSquareHeart, Quote, ArrowRight, Phone, CheckCircle2 } from "lucide-react";
+import { Star, MessageSquareHeart, Phone, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Client & Family Testimonials | HomeCompanions.uk Bristol",

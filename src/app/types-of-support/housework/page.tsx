@@ -4,11 +4,8 @@ import { Metadata } from "next";
 import {
   Sparkles,
   CheckCircle2,
-  ShieldCheck,
   ArrowRight,
   Phone,
-  Coffee,
-  Heart,
   Home,
 } from "lucide-react";
 

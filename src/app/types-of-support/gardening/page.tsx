@@ -4,12 +4,9 @@ import { Metadata } from "next";
 import {
   Flower2,
   CheckCircle2,
-  ShieldCheck,
   ArrowRight,
   Phone,
-  Sun,
   Leaf,
-  Sparkles,
 } from "lucide-react";
 
 export const metadata: Metadata = {

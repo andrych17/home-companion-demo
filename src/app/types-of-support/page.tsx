@@ -8,10 +8,7 @@ import {
   Sparkles,
   Dog,
   ShieldCheck,
-  CheckCircle2,
   ArrowRight,
-  Heart,
-  Phone,
 } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 
