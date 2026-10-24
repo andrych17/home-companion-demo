@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Search, CheckCircle2, AlertCircle, ArrowRight, MapPin } from "lucide-react";
-import { lookupPostcode, quickPostcodes } from "@/lib/areas";
 
 export default function PostcodeChecker() {
   const [postcode, setPostcode] = useState("");
@@ -15,21 +14,36 @@ export default function PostcodeChecker() {
 
   const handleCheck = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!postcode.trim()) return;
+    const clean = postcode.trim().toUpperCase();
+    if (!clean) return;
 
-    const area = lookupPostcode(postcode);
-    if (area) {
+    // Check Bristol (BS1-BS40) and Bath (BA1-BA2)
+    const isBristol = clean.startsWith("BS");
+    const isBath = clean.startsWith("BA1") || clean.startsWith("BA2");
+
+    if (isBristol || isBath) {
+      let areaName = "Bristol & Immediate Environs";
+      if (clean.startsWith("BS8") || clean.startsWith("BS6")) areaName = "Clifton, Cotham & Redland";
+      else if (clean.startsWith("BS9") || clean.startsWith("BS10")) areaName = "Westbury-on-Trym, Henleaze & Southmead";
+      else if (clean.startsWith("BS1") || clean.startsWith("BS2")) areaName = "Central Bristol & Harbourside";
+      else if (clean.startsWith("BS3") || clean.startsWith("BS4")) areaName = "Bedminster, Southville & Brislington";
+      else if (clean.startsWith("BS5") || clean.startsWith("BS7")) areaName = "Bishopston, St Andrews & Eastville";
+      else if (clean.startsWith("BS16") || clean.startsWith("BS15")) areaName = "Fishponds, Kingswood & Downend";
+      else if (clean.startsWith("BS20") || clean.startsWith("BS21")) areaName = "Portishead & Clevedon";
+      else if (clean.startsWith("BS30") || clean.startsWith("BS31")) areaName = "Keynsham & Bitton";
+      else if (isBath) areaName = "Bath & North East Somerset";
+
       setResult({
         status: "available",
-        area,
-        details: "Same-week introductory visits available.",
+        area: areaName,
+        details: "Active companions available with same-week introductory visits.",
       });
     } else {
       setResult({
         status: "unavailable",
-        area: postcode.trim().toUpperCase(),
+        area: clean,
         details:
-          "We mainly cover Nottingham and surrounding areas (NG1 to NG16). Get in touch anyway and we'll see what we can do.",
+          "We currently focus on Bristol and immediate South West areas. Enquire anyway and we'll check partner availability.",
       });
     }
   };
@@ -42,11 +56,11 @@ export default function PostcodeChecker() {
           <span>Local Area Coverage Finder</span>
         </div>
         <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mb-2">
-          Check We Cover Your Postcode
+          Check Companion Availability in Your Postcode
         </h3>
         <p className="text-sm text-slate-600 mb-6 leading-relaxed">
-          Enter your or your loved one’s postcode (e.g. NG2, NG9 or NG5 3AB) to
-          check we cover your neighbourhood.
+          Enter your or your loved one’s postcode (e.g. BS8, BS9, BS3, BA1) to
+          verify our companion presence in your neighbourhood.
         </p>
 
         <form onSubmit={handleCheck} className="flex flex-col sm:flex-row gap-3">
@@ -55,7 +69,7 @@ export default function PostcodeChecker() {
               type="text"
               value={postcode}
               onChange={(e) => setPostcode(e.target.value)}
-              placeholder="e.g. NG9 2AB or NG5"
+              placeholder="e.g. BS8 3HA or BS9"
               aria-label="Enter UK Postcode"
               className="w-full pl-11 pr-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:bg-white text-sm font-medium transition-all"
             />
@@ -97,7 +111,7 @@ export default function PostcodeChecker() {
             <AlertCircle className="w-5 h-5 text-amber-600 mt-0.5 shrink-0" />
             <div className="flex-1">
               <div className="text-sm font-bold text-amber-950">
-                Just outside our usual area
+                Postcode Area Outside Standard Hub
               </div>
               <p className="text-xs text-amber-800 mt-0.5 leading-relaxed">
                 {result.details}
@@ -107,7 +121,7 @@ export default function PostcodeChecker() {
                   href="/contact"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-900 hover:text-amber-950 underline underline-offset-4"
                 >
-                  <span>Ask us about your area</span>
+                  <span>Speak with our regional coordinator</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -118,7 +132,7 @@ export default function PostcodeChecker() {
         {/* Popular coverage list */}
         <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap items-center gap-2 text-xs text-slate-500">
           <span className="font-semibold text-slate-700">Immediate Coverage:</span>
-          {quickPostcodes.map((tag) => (
+          {["Clifton (BS8)", "Henleaze (BS9)", "Bishopston (BS7)", "Redland (BS6)", "Bedminster (BS3)", "Keynsham (BS31)", "Portishead (BS20)", "Bath (BA1/BA2)"].map((tag) => (
             <button
               key={tag}
               type="button"

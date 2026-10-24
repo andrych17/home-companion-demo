@@ -8,6 +8,7 @@ import {
   Sparkles,
   CheckCircle2,
   ArrowRight,
+  MessageSquare,
   Image as ImageIcon,
 } from "lucide-react";
 
@@ -50,7 +51,7 @@ export default function BentoWhyUs() {
 
               <div className="p-3 rounded-xl bg-amber-50/60 border border-amber-100 text-xs text-amber-950 italic flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
-                <span>“Mum feels like she gained a trusted niece, not an agency worker.” — Family in Beeston</span>
+                <span>“Mum feels like she gained a trusted niece, not an agency worker.” — Bristol Family</span>
               </div>
             </div>
           </div>
@@ -71,7 +72,7 @@ export default function BentoWhyUs() {
                 Post-Visit Notes & Photos Sent to Your Phone
               </h3>
               <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Whether you’re at work across town or living abroad, you get a short update after every visit.
+                Whether you are at work in Bristol or living abroad, stay reassured with live summaries after every visit.
               </p>
             </div>
 
@@ -85,7 +86,7 @@ export default function BentoWhyUs() {
                 <span>Today, 2:45 PM</span>
               </div>
               <p className="text-slate-200 leading-relaxed text-[11px]">
-                “Visited Mum in West Bridgford. We picked up her prescription, then had tea and cake by the river at Victoria Embankment. Mum was smiling and ate a full lunch.”
+                “Claire visited Mum in Redland. Enjoyed a scenic drive to Ashton Court & tea at the café. Mum was smiling and ate a full lunch.”
               </p>
               <div className="flex items-center gap-2 pt-1 text-[10px] text-emerald-400 font-semibold">
                 <ImageIcon className="w-3 h-3" />

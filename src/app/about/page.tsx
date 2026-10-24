@@ -17,9 +17,9 @@ import PhotoFrame from "@/components/PhotoFrame";
 import { photos } from "@/lib/photos";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Us | Dedicated Companionship Across Bristol & South West",
   description:
-    "About Home Companion, an independent support worker helping older people across Nottingham stay independent, connected and happy at home.",
+    "Learn about Home Companion, our founding mission, rigorous companion vetting, and how we bring dignified companionship to homes across Bristol.",
 };
 
 export default function AboutPage() {
@@ -67,10 +67,10 @@ export default function AboutPage() {
               at home.
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed pt-2">
-              Home Companion was set up in Nottingham to fill the gap between
-              rushed 15-minute agency visits and full-time care: friendly,
-              practical help and genuine company that lets older people stay
-              in the homes they love.
+              Home Companion was established in Bristol to fill the growing void
+              between cold 15-minute agency visits and full-time nursing care. We
+              offer heart-led companionship, practical daily help, and genuine
+              friendship that allows seniors to stay in the homes they love.
             </p>
           </div>
           <div className="col-span-12 lg:col-span-5">
@@ -88,20 +88,23 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
               <p>
-                Many Nottingham families know the feeling. A different agency
-                worker turns up every day, rushes through a checklist in 15
-                minutes and barely has time to ask how Mum is feeling.
+                When our founder tried to find companionship for his own elderly
+                grandmother in Clifton, the experience was heartbreaking.
+                Different agency workers arrived every day, rushed through tasks
+                in 15 minutes with a clipboard, and barely had time to ask how
+                she was feeling.
               </p>
               <p>
-                What most older people really want isn’t clinical care. It’s
-                someone to sit down with a cup of tea, help with the weekly shop,
-                give a lift to the doctor’s and walk round Wollaton Park without
-                feeling like a burden.
+                What she really needed wasn’t clinical intervention—she wanted
+                someone to sit down with a hot cup of tea, potter in the garden,
+                help with the weekly trip to the farm shop, and walk down to the
+                Downs without feeling like a burden.
               </p>
               <p>
-                Home Companion is built on exactly that: one friendly, reliable,
-                familiar face with time to listen, whether the conversation is
-                about baking, old films or Forest’s latest result.
+                Home Companion was born to restore dignity, patience, and warmth
+                to home support. We match each client with a dedicated companion
+                who shares their interests, from classical music and baking to
+                cricket and British history.
               </p>
             </div>
 
@@ -263,8 +266,8 @@ export default function AboutPage() {
                     <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
-                    Read stories from daughters, sons and older people
-                    across Nottingham and surrounding areas.
+                    Read genuine stories from daughters, sons, and seniors
+                    living in Bristol, Bath, and across the South West.
                   </p>
                   <span className="inline-block text-xs font-bold text-rose-700 mt-4 underline underline-offset-4">
                     Read Client Reviews →
@@ -294,11 +297,11 @@ export default function AboutPage() {
               Arrange a Free Consultation
             </Link>
             <a
-              href="tel:07438318947"
+              href="tel:01174960123"
               className="px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
             >
               <Phone className="w-4 h-4 text-sky-600" />
-              <span>07438 318947</span>
+              <span>0117 496 0123</span>
             </a>
           </div>
         </div>

@@ -6,27 +6,62 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import Logo from "./Logo";
-import { services, serviceHref, type Service } from "@/lib/services";
-import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/site";
+import { photos, type Photo } from "@/lib/photos";
 
 type MenuKey = "about" | "support";
+
+const supportLinks: { title: string; href: string; desc: string; photo: Photo }[] = [
+  {
+    title: "Taking trips",
+    href: "/types-of-support/trips",
+    desc: "Outings, errands, shopping and days out",
+    photo: photos.trips,
+  },
+  {
+    title: "Gardening support",
+    href: "/types-of-support/gardening",
+    desc: "Light garden care and fresh air together",
+    photo: photos.gardening,
+  },
+  {
+    title: "Appointments escort",
+    href: "/types-of-support/appointments",
+    desc: "GP, hospital, dentist and optician visits",
+    photo: photos.appointments,
+  },
+  {
+    title: "Housework & tidying",
+    href: "/types-of-support/housework",
+    desc: "Laundry, light cleaning and a warm lunch",
+    photo: photos.housework,
+  },
+  {
+    title: "Dog walking & pets",
+    href: "/types-of-support/dog-walking",
+    desc: "Gentle walks, feeding and vet trips",
+    photo: photos.dogWalking,
+  },
+];
 
 const aboutLinks = [
   { title: "About us", href: "/about", desc: "Who we are and how we vet companions" },
   { title: "FAQ & pricing", href: "/faq", desc: "Visits, DBS checks and rates" },
-  { title: "Testimonials", href: "/testimonials", desc: "Stories from families across Nottingham" },
+  { title: "Testimonials", href: "/testimonials", desc: "Stories from families across Bristol" },
 ];
+
+const PHONE_DISPLAY = "0117 496 0123";
+const PHONE_HREF = "tel:01174960123";
 
 function ServiceLink({
   item,
   onNavigate,
 }: {
-  item: Service;
+  item: (typeof supportLinks)[number];
   onNavigate: () => void;
 }) {
   return (
     <Link
-      href={serviceHref(item)}
+      href={item.href}
       onClick={onNavigate}
       className="group/item flex items-center gap-3 rounded-xl p-2 hover:bg-slate-900/[0.04] transition-colors"
     >
@@ -42,7 +77,7 @@ function ServiceLink({
       </span>
       <span className="min-w-0">
         <span className="block text-sm font-semibold text-slate-900">{item.title}</span>
-        <span className="block text-xs text-slate-500 leading-snug">{item.navDesc}</span>
+        <span className="block text-xs text-slate-500 leading-snug">{item.desc}</span>
       </span>
     </Link>
   );
@@ -133,8 +168,8 @@ export default function Navbar() {
               <div id="menu-support" className={panelClass(openMenu === "support")}>
                 <div className="w-[560px] rounded-2xl bg-white p-2 ring-1 ring-slate-900/[0.08] shadow-[0_24px_48px_-16px_rgba(15,23,42,0.18)]">
                   <div className="grid grid-cols-2 gap-1">
-                    {services.map((item) => (
-                      <ServiceLink key={item.slug} item={item} onNavigate={closeAll} />
+                    {supportLinks.map((item) => (
+                      <ServiceLink key={item.href} item={item} onNavigate={closeAll} />
                     ))}
                     <Link
                       href="/types-of-support"
@@ -192,7 +227,7 @@ export default function Navbar() {
           {/* Desktop actions */}
           <div className="hidden lg:flex items-center justify-end gap-5">
             <a href={PHONE_HREF} className="group hidden xl:flex flex-col items-end leading-tight">
-              <span className="text-[11px] text-slate-500">Call now, 8am to 7pm</span>
+              <span className="text-[11px] text-slate-500">Bristol team, 8am to 7pm</span>
               <span className="text-[15px] font-semibold tabular-nums text-slate-900 group-hover:text-sky-700 transition-colors">
                 {PHONE_DISPLAY}
               </span>
@@ -241,8 +276,8 @@ export default function Navbar() {
                 Types of support
               </p>
               <div className="mt-2">
-                {services.map((item) => (
-                  <ServiceLink key={item.slug} item={item} onNavigate={closeAll} />
+                {supportLinks.map((item) => (
+                  <ServiceLink key={item.href} item={item} onNavigate={closeAll} />
                 ))}
               </div>
               <Link

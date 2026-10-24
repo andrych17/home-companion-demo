@@ -1,21 +1,21 @@
 # Home Companion Demo
 
-> Independent support worker for older people in Nottingham & surrounding areas. Friendly | Reliable | Here to Help.
+> Dedicated, compassionate home support & companionship services across Bristol and the South West.
 
-Sample site built from the client's flyer. The phone number and the five services come from that flyer. The email, reviews and family names are placeholders. Photos are the client's artwork plus Unsplash stock (sources in `src/assets/photos/CREDITS.md`).
+Demo site for a fictional home companionship service in Bristol. The business name, phone number, email, address, and reviews are all made up. Photos are Unsplash stock (sources in `src/assets/photos/CREDITS.md`).
 
 ---
 
 ## 🗺️ Sitemap Architecture
 
-Content and service list follow the client's flyer:
+Built in accordance with the official HomeCompanions.uk IA specification:
 
 ```
 Home Companion Demo
 │
 ├── / (Home Page)
-│   ├── Hero (navy panel, "Loneliness can affect anyone", call now)
-│   ├── Five services preview
+│   ├── Hero / Introduction with trust credentials
+│   ├── Key Services preview
 │   ├── Why Choose Us (Asymmetric Bento Grid)
 │   ├── Testimonials Preview
 │   ├── Call to Action (Enquiry Island)
@@ -24,24 +24,24 @@ Home Companion Demo
 ├── /about (About Us)
 │   ├── Our founding story, values & vetting standards
 │   ├── /faq (Frequently Asked Questions with category filters)
-│   └── /testimonials (Family stories across Nottingham)
+│   └── /testimonials (Family reviews across Bristol & South West)
 │
 ├── /areas (Areas Covered)
-│   ├── Coverage across Nottingham & surrounding areas
-│   ├── Interactive postcode checker (NG1–NG16)
+│   ├── Service coverage across Bristol & the South West
+│   ├── Interactive Bristol Postcode Checker (BS1–BS40, BA1–BA2)
 │   └── Safe transport & travel policy
 │
 ├── /types-of-support (Support Spectrum)
-│   ├── /types-of-support/appointments (Transport to Appointments)
-│   ├── /types-of-support/shopping (Shopping & Errands)
-│   ├── /types-of-support/outings (Companionship & Outings)
-│   ├── /types-of-support/community (Community Activities)
-│   └── /types-of-support/prescriptions (Prescription Collection)
+│   ├── /types-of-support/trips (Taking Trips & Outings)
+│   ├── /types-of-support/gardening (Gardening & Outdoor Wellbeing)
+│   ├── /types-of-support/appointments (Appointments Escort & Hospital Visits)
+│   ├── /types-of-support/housework (Housework, Meals & Tidying)
+│   └── /types-of-support/dog-walking (Dog Walking & Pet Care)
 │
 └── /contact (Contact & Coordination)
     ├── Ask a Question (Direct inquiry form)
     ├── Make an Enquiry (Structured service & routine selector)
-    └── Call now: 07438 318947
+    └── Direct Bristol Office telephone & address
 ```
 
 ---
@@ -100,4 +100,4 @@ pnpm start
 
 ## 📄 License & Ownership
 
-Sample site for a client pitch. The phone number (07438 318947) is the client's real number from the flyer. The email still uses the `.example` domain. Old service URLs (`/types-of-support/trips`, `housework`, `gardening`, `dog-walking`) redirect to the new pages in `next.config.ts`.
+Demo project, not a real business. Contact details use reserved fictional values: an Ofcom drama number (0117 496 0123) and the `.example` domain.

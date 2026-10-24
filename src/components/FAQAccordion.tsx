@@ -12,12 +12,12 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     category: "getting-started",
-    q: "What is the difference between an independent support worker and a care agency?",
-    a: "An independent support worker helps with the practical, social side of life: transport to appointments, shopping and errands, companionship and outings, community activities and prescription collection. There is no clinical or personal nursing care (like catheter care or lifting). What you get is a friendly, reliable person with time to help, which goes a long way against loneliness.",
+    q: "What is the difference between a home companion and a registered care agency?",
+    a: "A home companion focuses on social companionship, practical support, emotional well-being, and daily independence—such as taking trips, doctor appointment accompaniment, light housework, meal preparation, gardening, and dog walking. While we do not provide invasive clinical or personal nursing care (like catheter care or lifting), our companions provide the vital human connection, warmth, and household help that prevents loneliness and keeps seniors living happily at home.",
   },
   {
     category: "getting-started",
-    q: "Can we meet before regular visits start?",
+    q: "Can we meet our matched companion before starting regular visits?",
     a: "Yes, absolutely. We insist on a complimentary, no-obligation introductory visit in the comfort of your home. You and your family get to sit down over a cup of tea, chat, and ensure there is genuine chemistry and comfort before any service begins.",
   },
   {
@@ -32,13 +32,13 @@ const faqs: FAQItem[] = [
   },
   {
     category: "services",
-    q: "Can you drive my loved one to hospital and GP appointments?",
-    a: "Yes. Transport is in a business-insured car, door to door, to QMC, Nottingham City Hospital, GP surgeries, dentists and opticians. Your loved one is helped from the front door, kept company in the waiting room, notes are taken if you'd like them, and they're seen safely back inside at home.",
+    q: "Can the companion drive my loved one to hospital and clinic appointments?",
+    a: "Yes. Companions with business-insured vehicles can escort clients door-to-door to Southmead Hospital, Bristol Royal Infirmary (BRI), St Michael's, GP surgeries, or dental clinics. The companion assists from the front door, stays by their side in the waiting room, takes notes if requested, and escorts them safely back inside their home.",
   },
   {
     category: "services",
-    q: "What do shopping, errands and prescription collection include?",
-    a: "The weekly supermarket shop (together or from a list), trips to the post office, bank or library, returning parcels, and collecting repeat prescriptions from the local pharmacy. Shopping is put away, receipts are kept, and medicines are handed over and checked off with your loved one.",
+    q: "What does light gardening and housework support include?",
+    a: "It includes the practical tasks that keep a home pleasant and safe: sweeping paths, watering pots, deadheading flowers, tidying beds, laundry, ironing, preparing fresh lunches, clearing cluttered hallways to prevent slips, and changing bed linens.",
   },
   {
     category: "pricing",
@@ -73,7 +73,7 @@ export default function FAQAccordion() {
           { id: "all", label: "All Questions" },
           { id: "getting-started", label: "Getting Started" },
           { id: "safety", label: "DBS & Safeguarding" },
-          { id: "services", label: "Services" },
+          { id: "services", label: "Trips & Services" },
           { id: "pricing", label: "Pricing & Visits" },
         ].map((cat) => (
           <button

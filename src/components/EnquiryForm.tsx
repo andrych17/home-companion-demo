@@ -1,8 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import { Send, CheckCircle2, Calendar, HelpCircle } from "lucide-react";
-import { services as allServices } from "@/lib/services";
+import {
+  Send,
+  CheckCircle2,
+  Calendar,
+  Sparkles,
+  Car,
+  Flower2,
+  CalendarCheck,
+  Dog,
+  HelpCircle,
+} from "lucide-react";
 
 interface EnquiryFormProps {
   initialType?: "enquiry" | "question";
@@ -29,7 +38,13 @@ export default function EnquiryForm({
     callTime: "morning",
   });
 
-  const services = allServices.map((s) => ({ id: s.slug, label: s.title, icon: s.icon }));
+  const services = [
+    { id: "trips", label: "Taking Trips & Outings", icon: Car },
+    { id: "gardening", label: "Gardening & Outdoors", icon: Flower2 },
+    { id: "appointments", label: "Appointments Escort", icon: CalendarCheck },
+    { id: "housework", label: "Housework & Tidying", icon: Sparkles },
+    { id: "dog-walking", label: "Dog Walking & Pet Care", icon: Dog },
+  ];
 
   const toggleService = (id: string) => {
     if (selectedServices.includes(id)) {
@@ -55,12 +70,12 @@ export default function EnquiryForm({
           Thank you, {formData.name || "Friend"}
         </h3>
         <p className="text-slate-600 max-w-md mx-auto text-sm leading-relaxed mb-6">
-          We have received your {activeTab === "enquiry" ? "care enquiry" : "question"}. We’ll call or email you back the same day (Mon to Sat, 8am to 7pm).
+          We have received your {activeTab === "enquiry" ? "care enquiry" : "question"}. A local Bristol companion coordinator will call or email you back within 2 hours during office hours (Mon-Sat 8am-7pm).
         </p>
         <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 text-xs text-slate-500 max-w-sm mx-auto">
           Need an urgent response? Call our direct line at{" "}
-          <a href="tel:07438318947" className="text-sky-700 font-bold hover:underline">
-            07438 318947
+          <a href="tel:01174960123" className="text-sky-700 font-bold hover:underline">
+            0117 496 0123
           </a>
         </div>
         <button
@@ -248,7 +263,7 @@ export default function EnquiryForm({
               </div>
               <div>
                 <label className="block text-xs font-semibold text-slate-600 mb-1">
-                  Postcode (Nottingham & surrounding areas) *
+                  Postcode in Bristol / South West *
                 </label>
                 <input
                   type="text"
@@ -257,7 +272,7 @@ export default function EnquiryForm({
                   onChange={(e) =>
                     setFormData({ ...formData, postcode: e.target.value })
                   }
-                  placeholder="e.g. NG9 2AB"
+                  placeholder="e.g. BS8 3HA"
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-sm focus:bg-white focus:ring-2 focus:ring-sky-600 outline-none"
                 />
               </div>
@@ -278,8 +293,8 @@ export default function EnquiryForm({
                 }
                 placeholder={
                   activeTab === "enquiry"
-                    ? "e.g. Mum lives alone in West Bridgford and loves a walk by the Trent, but needs some company and a lift to her physio appointments..."
-                    : "e.g. Do you have dementia awareness training, and can we meet before booking regular visits?"
+                    ? "e.g. Mum lives alone in Clifton and loves gardening and walks in Ashton Court, but needs steady company and transport to physiotherapy..."
+                    : "e.g. Do your companions have specific dementia awareness training, and can we meet before committing to regular visits?"
                 }
                 className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-sm focus:bg-white focus:ring-2 focus:ring-sky-600 outline-none resize-y"
               />
@@ -299,7 +314,7 @@ export default function EnquiryForm({
               <span>
                 {activeTab === "enquiry"
                   ? "Submit Enquiry & Arrange Free Visit"
-                  : "Send Question"}
+                  : "Send Question to Bristol Team"}
               </span>
               <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center">
                 <Send className="w-3.5 h-3.5 text-white" />

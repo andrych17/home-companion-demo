@@ -9,16 +9,77 @@ import {
   Compass,
 } from "lucide-react";
 import PostcodeChecker from "@/components/PostcodeChecker";
-import { hubs } from "@/lib/areas";
-import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Areas Covered",
+  title: "Areas Covered | Bristol & South West Companionship Support",
   description:
-    "Independent support worker covering Nottingham and surrounding areas (NG1 to NG16): West Bridgford, Beeston, Arnold, Carlton, Hucknall, Long Eaton and more.",
+    "Explore our home companionship and support service coverage across Bristol (BS1–BS40), Bath (BA1, BA2), South Gloucestershire, and North Somerset.",
 };
 
 export default function AreasPage() {
+  const hubs = [
+    {
+      region: "North & West Bristol",
+      postcodes: "BS6, BS8, BS9, BS10",
+      areas: [
+        "Clifton & Clifton Village",
+        "Redland & Cotham",
+        "Henleaze & Westbury-on-Trym",
+        "Stoke Bishop & Sneyd Park",
+        "Southmead & Brentry",
+      ],
+      desc: "Our primary hub with large numbers of active companions for immediate same-week visits.",
+    },
+    {
+      region: "Central & East Bristol",
+      postcodes: "BS1, BS2, BS5, BS7, BS16",
+      areas: [
+        "Harbourside & City Centre",
+        "Bishopston & Gloucester Road",
+        "St Andrews & Montpelier",
+        "Fishponds & Stapleton",
+        "Eastville & St George",
+      ],
+      desc: "Frequent visits for hospital appointments at the BRI and trips to Bristol Harbourside.",
+    },
+    {
+      region: "South Bristol",
+      postcodes: "BS3, BS4, BS13, BS14",
+      areas: [
+        "Bedminster & Southville",
+        "Totterdown & Windmill Hill",
+        "Brislington & Knowle",
+        "Bishopsworth & Headley Park",
+        "Hengrove & Whitchurch",
+      ],
+      desc: "Active companions providing light housework, dog walking, and shopping escorts.",
+    },
+    {
+      region: "North Somerset & Coastal",
+      postcodes: "BS20, BS21, BS48",
+      areas: [
+        "Portishead Marina & Town",
+        "Clevedon Seafront & Hill",
+        "Nailsea & Backwell",
+        "Pill & Abbots Leigh",
+        "Long Ashton & Failand",
+      ],
+      desc: "Popular for coastal strolls, garden maintenance, and companionship for rural properties.",
+    },
+    {
+      region: "Bath & South Gloucestershire",
+      postcodes: "BA1, BA2, BS30, BS31",
+      areas: [
+        "Bath City & Combe Down",
+        "Keynsham & Saltford",
+        "Bitton & Warmley",
+        "Kingswood & Hanham",
+        "Emersons Green & Downend",
+      ],
+      desc: "Dedicated companion routes connecting Bath, Keynsham, and eastern Bristol.",
+    },
+  ];
+
   return (
     <div className="space-y-20 py-12 sm:py-20 pb-24">
       {/* Header */}
@@ -29,15 +90,16 @@ export default function AreasPage() {
             <span>Regional Coverage</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
-            Nottingham &{" "}
+            Companionship across Bristol and the{" "}
             <span className="font-serif italic font-normal text-sky-800 underline decoration-sky-300 decoration-wavy decoration-2">
-              surrounding areas
+              South West
             </span>
+            .
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed pt-2">
-            Local support from someone who knows the area. Whether your loved
-            one lives in West Bridgford, Beeston, Arnold, Carlton or Hucknall,
-            we can help.
+            We provide local companions who live in and know your neighbourhood.
+            Whether your loved one lives in Clifton, Henleaze, Bedminster,
+            Portishead, or Bath, we have vetted companions ready to assist.
           </p>
         </div>
       </section>
@@ -51,11 +113,11 @@ export default function AreasPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
-            Where We Help
+            Our Bristol & South West Hubs
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
-            Based locally, so visits are on time and always with a familiar
-            face.
+            Companions are locally based to ensure punctuality, local knowledge,
+            and reliable continuity of care.
           </p>
         </div>
 
@@ -73,7 +135,7 @@ export default function AreasPage() {
                     </span>
                     <span className="text-[11px] text-emerald-600 font-semibold flex items-center gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                      Covered
+                      Active Hub
                     </span>
                   </div>
 
@@ -105,7 +167,7 @@ export default function AreasPage() {
                     href={`/contact?area=${encodeURIComponent(hub.region)}`}
                     className="inline-flex items-center justify-between w-full text-xs font-bold text-slate-900 hover:text-sky-700 transition-colors"
                   >
-                    <span>Ask about {hub.region}</span>
+                    <span>Request a companion in {hub.region}</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -127,9 +189,11 @@ export default function AreasPage() {
                 Safe Door-to-Door Escort & Travel Policy
               </h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Lifts are in a business-insured car to GP surgeries, hospitals
-                (QMC, City Hospital), the hairdresser or a day out. Every
-                journey is door-to-door, from the hallway until your loved one
+                Many of our companions have business-insured personal vehicles
+                specifically authorized to escort clients to GP surgeries,
+                hospitals (Southmead, BRI), hairdressers, or scenic country
+                destinations. All journeys are door-to-door, meaning the
+                companion assists from inside your hallway until your loved one
                 is safely seated and settled back home.
               </p>
               <div className="pt-2 flex flex-wrap gap-4 text-xs font-semibold text-slate-700">
@@ -157,8 +221,8 @@ export default function AreasPage() {
           Not sure if your specific address is covered?
         </h2>
         <p className="text-slate-600 text-sm max-w-md mx-auto mb-6">
-          Give us a call or pop your postcode in the enquiry form. Nearby
-          villages are often fine too.
+          Give our Bristol coordination team a call or enter your postcode in
+          our enquiry form. We frequently accommodate adjacent villages.
         </p>
         <div className="flex items-center justify-center gap-4">
           <Link
@@ -168,11 +232,11 @@ export default function AreasPage() {
             Enquire About Your Location
           </Link>
           <a
-            href={PHONE_HREF}
+            href="tel:01174960123"
             className="px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
           >
             <Phone className="w-4 h-4 text-sky-600" />
-            <span>{PHONE_DISPLAY}</span>
+            <span>0117 496 0123</span>
           </a>
         </div>
       </section>
