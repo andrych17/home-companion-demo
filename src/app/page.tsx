@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Car,
   Flower2,
@@ -14,6 +15,7 @@ import {
   Heart,
 } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
+import { photos } from "@/lib/photos";
 import BentoWhyUs from "@/components/BentoWhyUs";
 import PostcodeChecker from "@/components/PostcodeChecker";
 
@@ -22,6 +24,7 @@ export default function HomePage() {
     {
       title: "Taking Trips",
       href: "/types-of-support/trips",
+      image: photos.trips,
       description:
         "Enjoying days out, scenic country drives, trips to garden centres, family visits, or weekly shopping around Bristol.",
       icon: Car,
@@ -37,6 +40,7 @@ export default function HomePage() {
     {
       title: "Gardening Support",
       href: "/types-of-support/gardening",
+      image: photos.gardening,
       description:
         "Light garden maintenance, planting seasonal flowers, patio pot care, and enjoying the fresh air together in the garden.",
       icon: Flower2,
@@ -52,6 +56,7 @@ export default function HomePage() {
     {
       title: "Appointments Escort",
       href: "/types-of-support/appointments",
+      image: photos.appointments,
       description:
         "Reliable door-to-door accompaniment for GP appointments, hospital clinics, hairdressers, and optician visits.",
       icon: CalendarCheck,
@@ -67,6 +72,7 @@ export default function HomePage() {
     {
       title: "Housework & Tidying",
       href: "/types-of-support/housework",
+      image: photos.housework,
       description:
         "Light household tasks to keep home safe, clean, and welcoming—from fresh linens and laundry to making warm lunches.",
       icon: Sparkles,
@@ -82,6 +88,7 @@ export default function HomePage() {
     {
       title: "Dog Walking & Pet Care",
       href: "/types-of-support/dog-walking",
+      image: photos.dogWalking,
       description:
         "Keeping beloved pets active, happy, and fed when walking or bending has become difficult for their owners.",
       icon: Dog,
@@ -164,11 +171,11 @@ export default function HomePage() {
                 </Link>
 
                 <a
-                  href="tel:01178901234"
+                  href="tel:01174960123"
                   className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-200/90 shadow-sm transition-all"
                 >
                   <Phone className="w-4 h-4 text-sky-600" />
-                  <span>Call Bristol Office: 0117 890 1234</span>
+                  <span>Call Bristol Office: 0117 496 0123</span>
                 </a>
               </div>
 
@@ -192,7 +199,19 @@ export default function HomePage() {
             {/* Right Card (col-span-12 lg:col-span-5) - Double-bezel companion profile preview */}
             <div className="col-span-12 lg:col-span-5">
               <div className="double-bezel bg-slate-900/5 ring-1 ring-slate-900/10">
-                <div className="double-bezel-inner bg-white p-7 sm:p-8 shadow-sm">
+                <div className="double-bezel-inner bg-white p-7 sm:p-8 shadow-sm overflow-hidden">
+                  <div className="relative -mx-7 -mt-7 sm:-mx-8 sm:-mt-8 mb-6 aspect-[16/9] bg-slate-100">
+                    <Image
+                      src={photos.companionVisit.src}
+                      alt={photos.companionVisit.alt}
+                      fill
+                      placeholder="blur"
+                      sizes="(min-width: 1024px) 40vw, 100vw"
+                      loading="eager"
+                      fetchPriority="high"
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -224,7 +243,7 @@ export default function HomePage() {
                           </span>
                         </div>
                         <p className="text-xs text-slate-500 mt-0.5">
-                          Companion with HomeCompanions for 3+ years
+                          Companion with Home Companion for 3+ years
                         </p>
                         <div className="flex items-center gap-1 text-amber-500 mt-1">
                           {[...Array(5)].map((_, i) => (
@@ -327,13 +346,13 @@ export default function HomePage() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="space-y-3 max-w-xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold uppercase tracking-wider border border-emerald-100">
-              <span>The HomeCompanions Difference</span>
+              <span>The Home Companion Difference</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
               Why Families Across Bristol Trust Us
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              We started HomeCompanions with a simple belief: elderly family
+              We started Home Companion with a simple belief: elderly family
               members deserve dignified companionship from individuals who truly
               care, without the hurried 15-minute visits of typical care
               agencies.
@@ -368,7 +387,7 @@ export default function HomePage() {
             Stories From Local Bristol Families
           </h2>
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-            Real experiences from daughters, sons, and seniors across Clifton,
+            Experiences from daughters, sons, and seniors across Clifton,
             Redland, Henleaze, and the wider South West.
           </p>
         </div>
@@ -445,11 +464,11 @@ export default function HomePage() {
                 </Link>
 
                 <a
-                  href="tel:01178901234"
+                  href="tel:01174960123"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-700 transition-all"
                 >
                   <Phone className="w-4 h-4 text-sky-400" />
-                  <span>Call 0117 890 1234</span>
+                  <span>Call 0117 496 0123</span>
                 </a>
               </div>
             </div>

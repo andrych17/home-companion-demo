@@ -11,7 +11,7 @@ import {
 import EnquiryForm from "@/components/EnquiryForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us & Make an Enquiry | HomeCompanions.uk Bristol",
+  title: "Contact Us & Make an Enquiry",
   description:
     "Ask a question or make an enquiry for home companionship support across Bristol and the South West. Complimentary in-home meetings arranged.",
 };
@@ -93,14 +93,14 @@ async function ContactContent({
               </p>
               <div className="pt-2">
                 <a
-                  href="tel:01178901234"
+                  href="tel:01174960123"
                   className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/10 hover:bg-white/15 transition-colors border border-white/10"
                 >
                   <Phone className="w-5 h-5 text-sky-400 shrink-0" />
                   <div>
                     <div className="text-xs text-slate-400">Call Us (Mon–Sat)</div>
                     <div className="text-base font-bold text-white">
-                      0117 890 1234
+                      0117 496 0123
                     </div>
                   </div>
                 </a>
@@ -120,8 +120,8 @@ async function ContactContent({
                     <div className="font-semibold text-slate-900">
                       Bristol Office
                     </div>
-                    <div>Suite 4, Clifton Pavilions</div>
-                    <div>Clifton, Bristol, BS8 3HA</div>
+                    <div>Suite 4, 1 Example Lane</div>
+                    <div>Bristol, BS0 0AA</div>
                   </div>
                 </div>
 
@@ -130,10 +130,10 @@ async function ContactContent({
                   <div>
                     <div className="font-semibold text-slate-900">Email Us</div>
                     <a
-                      href="mailto:hello@homecompanions.uk"
+                      href="mailto:hello@homecompanion.example"
                       className="text-sky-700 hover:underline"
                     >
-                      hello@homecompanions.uk
+                      hello@homecompanion.example
                     </a>
                   </div>
                 </div>

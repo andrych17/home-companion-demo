@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
+import PhotoFrame from "@/components/PhotoFrame";
+import { photos } from "@/lib/photos";
 import {
   Sparkles,
   CheckCircle2,
@@ -10,7 +12,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Housework & Tidying Support | HomeCompanions.uk Bristol",
+  title: "Housework & Tidying Support",
   description:
     "Gentle household help, bed linen changes, laundry, meal preparation, and decluttering to keep seniors living safely and comfortably in Bristol.",
 };
@@ -47,40 +49,45 @@ export default function HouseworkPage() {
     <div className="space-y-20 py-12 sm:py-20 pb-24">
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-[11px] font-semibold uppercase tracking-wider border border-sky-100">
-            <Sparkles className="w-3.5 h-3.5 text-sky-600" />
-            <span>Home Comfort & Housework</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
-            Keeping the home comfortable, clean, and{" "}
-            <span className="font-serif italic font-normal text-sky-800 underline decoration-sky-300 decoration-wavy decoration-2">
-              safe
-            </span>
-            .
-          </h1>
-          <p className="text-lg text-slate-600 leading-relaxed pt-2">
-            Household chores that once felt effortless can become tiring or
-            dangerous as mobility changes. Our companions provide the patient
-            extra help needed to keep homes spotless, safe, and welcoming,
-            accompanied by warm conversation.
-          </p>
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="col-span-12 lg:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-[11px] font-semibold uppercase tracking-wider border border-sky-100">
+              <Sparkles className="w-3.5 h-3.5 text-sky-600" />
+              <span>Home Comfort & Housework</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+              Keeping the home comfortable, clean, and{" "}
+              <span className="font-serif italic font-normal text-sky-800 underline decoration-sky-300 decoration-wavy decoration-2">
+                safe
+              </span>
+              .
+            </h1>
+            <p className="text-lg text-slate-600 leading-relaxed pt-2">
+              Household chores that once felt effortless can become tiring or
+              dangerous as mobility changes. Our companions provide the patient
+              extra help needed to keep homes spotless, safe, and welcoming,
+              accompanied by warm conversation.
+            </p>
 
-          <div className="pt-4 flex flex-wrap gap-4">
-            <Link
-              href="/contact?service=housework"
-              className="px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-sm shadow transition-all flex items-center gap-2"
-            >
-              <span>Enquire About Housework Support</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href="tel:01178901234"
-              className="px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
-            >
-              <Phone className="w-4 h-4 text-sky-600" />
-              <span>Call 0117 890 1234</span>
-            </a>
+            <div className="pt-4 flex flex-wrap gap-4">
+              <Link
+                href="/contact?service=housework"
+                className="px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-sm shadow transition-all flex items-center gap-2"
+              >
+                <span>Enquire About Housework Support</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href="tel:01174960123"
+                className="px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
+              >
+                <Phone className="w-4 h-4 text-sky-600" />
+                <span>Call 0117 496 0123</span>
+              </a>
+            </div>
+          </div>
+          <div className="col-span-12 lg:col-span-5">
+            <PhotoFrame photo={photos.housework} eager />
           </div>
         </div>
       </section>

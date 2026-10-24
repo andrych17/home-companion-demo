@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
+import PhotoFrame from "@/components/PhotoFrame";
+import { photos } from "@/lib/photos";
 import {
   CalendarCheck,
   CheckCircle2,
@@ -10,7 +12,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Appointments Escort Support | HomeCompanions.uk Bristol",
+  title: "Appointments Escort Support",
   description:
     "Reliable, door-to-door accompaniment for GP, hospital, optician, and hairdresser appointments across Bristol in insured vehicles with note-taking support.",
 };
@@ -47,40 +49,45 @@ export default function AppointmentsPage() {
     <div className="space-y-20 py-12 sm:py-20 pb-24">
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-[11px] font-semibold uppercase tracking-wider border border-amber-100">
-            <CalendarCheck className="w-3.5 h-3.5 text-amber-600" />
-            <span>Healthcare & Errands Escort</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
-            Calm, dependable escort for{" "}
-            <span className="font-serif italic font-normal text-amber-800 underline decoration-amber-300 decoration-wavy decoration-2">
-              every appointment
-            </span>
-            .
-          </h1>
-          <p className="text-lg text-slate-600 leading-relaxed pt-2">
-            Attending clinical appointments can be confusing and stressful for
-            seniors, and working adult children cannot always take half a day
-            off. Our companions provide patient, door-to-door accompaniment,
-            waiting room support, and clear communication.
-          </p>
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="col-span-12 lg:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-[11px] font-semibold uppercase tracking-wider border border-amber-100">
+              <CalendarCheck className="w-3.5 h-3.5 text-amber-600" />
+              <span>Healthcare & Errands Escort</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+              Calm, dependable escort for{" "}
+              <span className="font-serif italic font-normal text-amber-800 underline decoration-amber-300 decoration-wavy decoration-2">
+                every appointment
+              </span>
+              .
+            </h1>
+            <p className="text-lg text-slate-600 leading-relaxed pt-2">
+              Attending clinical appointments can be confusing and stressful for
+              seniors, and working adult children cannot always take half a day
+              off. Our companions provide patient, door-to-door accompaniment,
+              waiting room support, and clear communication.
+            </p>
 
-          <div className="pt-4 flex flex-wrap gap-4">
-            <Link
-              href="/contact?service=appointments"
-              className="px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-sm shadow transition-all flex items-center gap-2"
-            >
-              <span>Enquire About Appointment Escort</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href="tel:01178901234"
-              className="px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
-            >
-              <Phone className="w-4 h-4 text-sky-600" />
-              <span>Call 0117 890 1234</span>
-            </a>
+            <div className="pt-4 flex flex-wrap gap-4">
+              <Link
+                href="/contact?service=appointments"
+                className="px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-sm shadow transition-all flex items-center gap-2"
+              >
+                <span>Enquire About Appointment Escort</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href="tel:01174960123"
+                className="px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
+              >
+                <Phone className="w-4 h-4 text-sky-600" />
+                <span>Call 0117 496 0123</span>
+              </a>
+            </div>
+          </div>
+          <div className="col-span-12 lg:col-span-5">
+            <PhotoFrame photo={photos.appointments} eager />
           </div>
         </div>
       </section>

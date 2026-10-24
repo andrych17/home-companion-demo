@@ -180,24 +180,24 @@ export default function Footer() {
             </h3>
             <div className="space-y-3 text-sm text-slate-400">
               <a
-                href="tel:01178901234"
+                href="tel:01174960123"
                 className="flex items-start gap-2.5 hover:text-white transition-colors group"
               >
                 <Phone className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
                 <span className="font-semibold text-white group-hover:text-sky-300">
-                  0117 890 1234
+                  0117 496 0123
                 </span>
               </a>
               <a
-                href="mailto:hello@homecompanions.uk"
+                href="mailto:hello@homecompanion.example"
                 className="flex items-start gap-2.5 hover:text-white transition-colors"
               >
                 <Mail className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
-                <span>hello@homecompanions.uk</span>
+                <span>hello@homecompanion.example</span>
               </a>
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-amber-400 mt-0.5 shrink-0" />
-                <span>Clifton Pavilions, Bristol BS8 3HA</span>
+                <span>1 Example Lane, Bristol BS0&nbsp;0AA</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-slate-500 mt-0.5 shrink-0" />
@@ -213,7 +213,7 @@ export default function Footer() {
 
         {/* Bottom copyright and legal */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© 2026 HomeCompanions.uk. All rights reserved. Registered in England & Wales.</p>
+          <p>© 2026 Home Companion Demo. Demo site: the business, contact details, and reviews are fictional.</p>
           <div className="flex items-center gap-6">
             <Link href="/contact" className="hover:text-slate-400 transition-colors">
               Make an Enquiry

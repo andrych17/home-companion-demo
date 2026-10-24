@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { LucideIcon, ArrowRight, Check } from "lucide-react";
+import type { Photo } from "@/lib/photos";
 
 interface ServiceCardProps {
   title: string;
@@ -10,6 +12,7 @@ interface ServiceCardProps {
   badge: string;
   badgeColor?: string;
   highlights: string[];
+  image?: Photo;
 }
 
 export default function ServiceCard({
@@ -20,11 +23,25 @@ export default function ServiceCard({
   badge,
   badgeColor = "bg-sky-50 text-sky-700 border-sky-100",
   highlights,
+  image,
 }: ServiceCardProps) {
   return (
     <div className="double-bezel bg-slate-900/5 ring-1 ring-slate-900/10 group hover:-translate-y-1 spring-transition">
-      <div className="double-bezel-inner bg-white p-7 sm:p-8 flex flex-col justify-between h-full shadow-sm">
+      <div className="double-bezel-inner bg-white p-7 sm:p-8 flex flex-col justify-between h-full shadow-sm overflow-hidden">
         <div>
+          {image && (
+            <div className="relative -mx-7 -mt-7 sm:-mx-8 sm:-mt-8 mb-6 aspect-[16/10] overflow-hidden bg-slate-100">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                placeholder="blur"
+                sizes="(min-width: 1024px) 40vw, (min-width: 768px) 50vw, 100vw"
+                className="object-cover group-hover:scale-[1.03] spring-transition"
+                style={{ objectPosition: image.position }}
+              />
+            </div>
+          )}
           <div className="flex items-center justify-between gap-2 mb-4">
             <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-800 group-hover:bg-[#0F172A] group-hover:text-white transition-colors duration-300">
               <Icon className="w-6 h-6" />

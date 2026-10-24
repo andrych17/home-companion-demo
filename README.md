@@ -1,8 +1,8 @@
-# Home Companion Demo (HomeCompanions.uk)
+# Home Companion Demo
 
 > Dedicated, compassionate home support & companionship services across Bristol and the South West.
 
-HomeCompanions.uk provides trusted, DBS-checked companions to help seniors and individuals maintain independence at home. Unlike rushed clinical care visits, our companions focus on meaningful human connection, unhurried time, and practical assistance.
+Demo site for a fictional home companionship service in Bristol. The business name, phone number, email, address, and reviews are all made up. Photos are Unsplash stock (sources in `src/assets/photos/CREDITS.md`).
 
 ---
 
@@ -11,7 +11,7 @@ HomeCompanions.uk provides trusted, DBS-checked companions to help seniors and i
 Built in accordance with the official HomeCompanions.uk IA specification:
 
 ```
-HomeCompanions.uk
+Home Companion Demo
 │
 ├── / (Home Page)
 │   ├── Hero / Introduction with trust credentials
@@ -24,7 +24,7 @@ HomeCompanions.uk
 ├── /about (About Us)
 │   ├── Our founding story, values & vetting standards
 │   ├── /faq (Frequently Asked Questions with category filters)
-│   └── /testimonials (Verified family reviews across Bristol & South West)
+│   └── /testimonials (Family reviews across Bristol & South West)
 │
 ├── /areas (Areas Covered)
 │   ├── Service coverage across Bristol & the South West
@@ -100,5 +100,4 @@ pnpm start
 
 ## 📄 License & Ownership
 
-Copyright © 2026 HomeCompanions.uk. All rights reserved.
-Registered in England & Wales.
+Demo project, not a real business. Contact details use reserved fictional values: an Ofcom drama number (0117 496 0123) and the `.example` domain.

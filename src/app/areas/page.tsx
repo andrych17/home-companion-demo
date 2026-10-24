@@ -232,11 +232,11 @@ export default function AreasPage() {
             Enquire About Your Location
           </Link>
           <a
-            href="tel:01178901234"
+            href="tel:01174960123"
             className="px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
           >
             <Phone className="w-4 h-4 text-sky-600" />
-            <span>0117 890 1234</span>
+            <span>0117 496 0123</span>
           </a>
         </div>
       </section>

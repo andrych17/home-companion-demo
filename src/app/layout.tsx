@@ -19,10 +19,15 @@ const newsreader = Newsreader({
   weight: ["400", "500", "600", "700"],
 });
 
+// Vercel sets this at build time; fall back to localhost for local builds
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3000";
+
 export const metadata: Metadata = {
   title: {
-    template: "%s | HomeCompanions.uk",
-    default: "HomeCompanions.uk | Compassionate Home Support & Companionship in Bristol & South West",
+    template: "%s | Home Companion Demo",
+    default: "Home Companion Demo | Compassionate Home Support & Companionship in Bristol & South West",
   },
   description:
     "Trusted, DBS-checked companionship and home support services across Bristol and the South West. From taking trips and appointments to light gardening, housework, and dog walking.",
@@ -35,14 +40,16 @@ export const metadata: Metadata = {
     "Gardening and housework support",
     "Dog walking for seniors Bristol",
   ],
-  authors: [{ name: "HomeCompanions.uk" }],
-  metadataBase: new URL("https://homecompanions.uk"),
+  authors: [{ name: "Home Companion Demo" }],
+  metadataBase: new URL(siteUrl),
+  // Demo site with fictional details: keep it out of search results
+  robots: { index: false, follow: false },
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://homecompanions.uk",
-    siteName: "HomeCompanions.uk",
-    title: "HomeCompanions.uk | Compassionate Home Support & Companionship",
+    url: siteUrl,
+    siteName: "Home Companion Demo",
+    title: "Home Companion Demo | Compassionate Home Support & Companionship",
     description:
       "Empowering independence with compassionate companionship across Bristol and the South West.",
   },

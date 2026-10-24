@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
+import PhotoFrame from "@/components/PhotoFrame";
+import { photos } from "@/lib/photos";
 import {
   Flower2,
   CheckCircle2,
@@ -10,7 +12,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Gardening & Outdoor Support | HomeCompanions.uk Bristol",
+  title: "Gardening & Outdoor Support",
   description:
     "Light garden maintenance, seasonal potting, patio sweeping, and companion gardening to keep seniors safely connected to nature across Bristol.",
 };
@@ -47,40 +49,45 @@ export default function GardeningPage() {
     <div className="space-y-20 py-12 sm:py-20 pb-24">
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-semibold uppercase tracking-wider border border-emerald-100">
-            <Flower2 className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Outdoor Wellbeing & Gardening</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
-            Nurturing gardens, fresh air, and{" "}
-            <span className="font-serif italic font-normal text-emerald-800 underline decoration-emerald-300 decoration-wavy decoration-2">
-              outdoor joy
-            </span>
-            .
-          </h1>
-          <p className="text-lg text-slate-600 leading-relaxed pt-2">
-            A neglected garden is often a major source of sorrow for elderly
-            green-fingered enthusiasts. Our companions provide the extra hands,
-            steady support, and cheerful company needed to keep gardens thriving
-            and safe.
-          </p>
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="col-span-12 lg:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-semibold uppercase tracking-wider border border-emerald-100">
+              <Flower2 className="w-3.5 h-3.5 text-emerald-600" />
+              <span>Outdoor Wellbeing & Gardening</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+              Nurturing gardens, fresh air, and{" "}
+              <span className="font-serif italic font-normal text-emerald-800 underline decoration-emerald-300 decoration-wavy decoration-2">
+                outdoor joy
+              </span>
+              .
+            </h1>
+            <p className="text-lg text-slate-600 leading-relaxed pt-2">
+              A neglected garden is often a major source of sorrow for elderly
+              green-fingered enthusiasts. Our companions provide the extra hands,
+              steady support, and cheerful company needed to keep gardens thriving
+              and safe.
+            </p>
 
-          <div className="pt-4 flex flex-wrap gap-4">
-            <Link
-              href="/contact?service=gardening"
-              className="px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-sm shadow transition-all flex items-center gap-2"
-            >
-              <span>Enquire About Gardening Support</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href="tel:01178901234"
-              className="px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
-            >
-              <Phone className="w-4 h-4 text-sky-600" />
-              <span>Call 0117 890 1234</span>
-            </a>
+            <div className="pt-4 flex flex-wrap gap-4">
+              <Link
+                href="/contact?service=gardening"
+                className="px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-sm shadow transition-all flex items-center gap-2"
+              >
+                <span>Enquire About Gardening Support</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href="tel:01174960123"
+                className="px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
+              >
+                <Phone className="w-4 h-4 text-sky-600" />
+                <span>Call 0117 496 0123</span>
+              </a>
+            </div>
+          </div>
+          <div className="col-span-12 lg:col-span-5">
+            <PhotoFrame photo={photos.gardening} eager />
           </div>
         </div>
       </section>

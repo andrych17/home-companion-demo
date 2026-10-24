@@ -13,7 +13,7 @@ export default function Logo({ variant = "light", className = "" }: LogoProps) {
       <Link
         href="/"
         className={`inline-flex items-center gap-3 bg-[#0F172A] text-white px-4 py-2.5 rounded-2xl shadow-sm hover:bg-[#1E293B] transition-all duration-200 group ${className}`}
-        aria-label="HomeCompanions.uk Home"
+        aria-label="Home Companion Demo home"
       >
         <div className="relative w-8 h-8 flex items-center justify-center">
           {/* House outline */}
@@ -40,7 +40,7 @@ export default function Logo({ variant = "light", className = "" }: LogoProps) {
         </div>
         <div className="flex flex-col">
           <span className="text-base font-bold tracking-tight text-white leading-tight">
-            HomeCompanions<span className="text-sky-300">.uk</span>
+            Home Companion <span className="text-sky-300">Demo</span>
           </span>
           <span className="text-[10px] tracking-wider uppercase text-slate-400 font-medium">
             Bristol & South West
@@ -56,7 +56,7 @@ export default function Logo({ variant = "light", className = "" }: LogoProps) {
     <Link
       href="/"
       className={`inline-flex items-center gap-2.5 group ${className}`}
-      aria-label="HomeCompanions.uk Home"
+      aria-label="Home Companion Demo home"
     >
       <div
         className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 ${
@@ -91,7 +91,7 @@ export default function Logo({ variant = "light", className = "" }: LogoProps) {
             isDark ? "text-white" : "text-slate-900"
           }`}
         >
-          HomeCompanions<span className="text-sky-600">.uk</span>
+          Home Companion <span className="text-sky-600">Demo</span>
         </span>
         <span className="text-[10px] uppercase tracking-wider text-slate-500 font-medium">
           DBS Verified Companions

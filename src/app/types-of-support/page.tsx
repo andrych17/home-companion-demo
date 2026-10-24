@@ -11,6 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
+import { photos } from "@/lib/photos";
 
 export const metadata: Metadata = {
   title: "Types of Support | Tailored Home Companionship Bristol",
@@ -23,6 +24,7 @@ export default function TypesOfSupportPage() {
     {
       title: "Taking Trips",
       href: "/types-of-support/trips",
+      image: photos.trips,
       description:
         "Enjoying days out, scenic country drives, garden centres, family visits, or weekly shopping around Bristol.",
       icon: Car,
@@ -38,6 +40,7 @@ export default function TypesOfSupportPage() {
     {
       title: "Gardening Support",
       href: "/types-of-support/gardening",
+      image: photos.gardening,
       description:
         "Light garden maintenance, planting seasonal flowers, patio pot care, and enjoying the fresh air together in the garden.",
       icon: Flower2,
@@ -53,6 +56,7 @@ export default function TypesOfSupportPage() {
     {
       title: "Appointments Escort",
       href: "/types-of-support/appointments",
+      image: photos.appointments,
       description:
         "Reliable door-to-door accompaniment for GP appointments, hospital clinics, hairdressers, and optician visits.",
       icon: CalendarCheck,
@@ -68,6 +72,7 @@ export default function TypesOfSupportPage() {
     {
       title: "Housework & Tidying",
       href: "/types-of-support/housework",
+      image: photos.housework,
       description:
         "Light household tasks to keep home safe, clean, and welcoming—from fresh linens and laundry to making warm lunches.",
       icon: Sparkles,
@@ -83,6 +88,7 @@ export default function TypesOfSupportPage() {
     {
       title: "Dog Walking & Pet Care",
       href: "/types-of-support/dog-walking",
+      image: photos.dogWalking,
       description:
         "Keeping beloved pets active, happy, and fed when walking or bending has become difficult for their owners.",
       icon: Dog,

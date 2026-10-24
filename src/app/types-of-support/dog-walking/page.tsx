@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
+import PhotoFrame from "@/components/PhotoFrame";
+import { photos } from "@/lib/photos";
 import {
   Dog,
   CheckCircle2,
@@ -10,7 +12,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Dog Walking & Pet Care Support | HomeCompanions.uk Bristol",
+  title: "Dog Walking & Pet Care Support",
   description:
     "Gentle dog walking, pet feeding, and accompanied park strolls so seniors across Bristol can keep their cherished pets happily at home.",
 };
@@ -47,40 +49,45 @@ export default function DogWalkingPage() {
     <div className="space-y-20 py-12 sm:py-20 pb-24">
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-semibold uppercase tracking-wider border border-indigo-100">
-            <Dog className="w-3.5 h-3.5 text-indigo-600" />
-            <span>Pet Care & Companionship</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
-            Keeping beloved pets happy and together at{" "}
-            <span className="font-serif italic font-normal text-indigo-800 underline decoration-indigo-300 decoration-wavy decoration-2">
-              home
-            </span>
-            .
-          </h1>
-          <p className="text-lg text-slate-600 leading-relaxed pt-2">
-            A dog or cat is often a senior’s closest daily companion and source
-            of unconditional love. When arthritis or reduced stamina makes dog
-            walking tough, our companions step in to ensure pets get healthy
-            exercise and owners never face the heartbreak of rehoming.
-          </p>
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="col-span-12 lg:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-semibold uppercase tracking-wider border border-indigo-100">
+              <Dog className="w-3.5 h-3.5 text-indigo-600" />
+              <span>Pet Care & Companionship</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+              Keeping beloved pets happy and together at{" "}
+              <span className="font-serif italic font-normal text-indigo-800 underline decoration-indigo-300 decoration-wavy decoration-2">
+                home
+              </span>
+              .
+            </h1>
+            <p className="text-lg text-slate-600 leading-relaxed pt-2">
+              A dog or cat is often a senior’s closest daily companion and source
+              of unconditional love. When arthritis or reduced stamina makes dog
+              walking tough, our companions step in to ensure pets get healthy
+              exercise and owners never face the heartbreak of rehoming.
+            </p>
 
-          <div className="pt-4 flex flex-wrap gap-4">
-            <Link
-              href="/contact?service=dog-walking"
-              className="px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-sm shadow transition-all flex items-center gap-2"
-            >
-              <span>Enquire About Dog Walking Support</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href="tel:01178901234"
-              className="px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
-            >
-              <Phone className="w-4 h-4 text-sky-600" />
-              <span>Call 0117 890 1234</span>
-            </a>
+            <div className="pt-4 flex flex-wrap gap-4">
+              <Link
+                href="/contact?service=dog-walking"
+                className="px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-sm shadow transition-all flex items-center gap-2"
+              >
+                <span>Enquire About Dog Walking Support</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href="tel:01174960123"
+                className="px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
+              >
+                <Phone className="w-4 h-4 text-sky-600" />
+                <span>Call 0117 496 0123</span>
+              </a>
+            </div>
+          </div>
+          <div className="col-span-12 lg:col-span-5">
+            <PhotoFrame photo={photos.dogWalking} eager />
           </div>
         </div>
       </section>
@@ -99,7 +106,7 @@ export default function DogWalkingPage() {
                 no longer walk them twice a day or bend down to fill bowls.
               </p>
               <p>
-                HomeCompanions exists to protect that sacred bond. Our
+                Home Companion exists to protect that sacred bond. Our
                 animal-loving companions take your dog for leisurely, safe
                 walks in familiar local parks. Even better: we frequently
                 accompany owners, allowing them to walk alongside their pet at an

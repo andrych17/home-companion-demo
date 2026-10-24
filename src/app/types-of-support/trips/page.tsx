@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
+import PhotoFrame from "@/components/PhotoFrame";
+import { photos } from "@/lib/photos";
 import {
   Car,
   CheckCircle2,
@@ -10,7 +12,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Taking Trips & Outings Support | HomeCompanions.uk Bristol",
+  title: "Taking Trips & Outings Support",
   description:
     "Accompanied trips, social outings, scenic drives, shopping, and visits to family across Bristol, Bath, and the South West in insured vehicles.",
 };
@@ -47,40 +49,45 @@ export default function TripsPage() {
     <div className="space-y-20 py-12 sm:py-20 pb-24">
       {/* Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-[11px] font-semibold uppercase tracking-wider border border-rose-100">
-            <Car className="w-3.5 h-3.5 text-rose-500" />
-            <span>Outings & Companionship</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
-            Taking Trips & Outings in{" "}
-            <span className="font-serif italic font-normal text-rose-700 underline decoration-rose-300 decoration-wavy decoration-2">
-              Bristol & Beyond
-            </span>
-            .
-          </h1>
-          <p className="text-lg text-slate-600 leading-relaxed pt-2">
-            Getting out of the house brings fresh perspectives, joyful
-            conversations, and vital connection to the world. Our companions
-            provide safe, door-to-door transport in business-insured vehicles for
-            leisure, shopping, and scenic adventures.
-          </p>
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="col-span-12 lg:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-[11px] font-semibold uppercase tracking-wider border border-rose-100">
+              <Car className="w-3.5 h-3.5 text-rose-500" />
+              <span>Outings & Companionship</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+              Taking Trips & Outings in{" "}
+              <span className="font-serif italic font-normal text-rose-700 underline decoration-rose-300 decoration-wavy decoration-2">
+                Bristol & Beyond
+              </span>
+              .
+            </h1>
+            <p className="text-lg text-slate-600 leading-relaxed pt-2">
+              Getting out of the house brings fresh perspectives, joyful
+              conversations, and vital connection to the world. Our companions
+              provide safe, door-to-door transport in business-insured vehicles for
+              leisure, shopping, and scenic adventures.
+            </p>
 
-          <div className="pt-4 flex flex-wrap gap-4">
-            <Link
-              href="/contact?service=trips"
-              className="px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-sm shadow transition-all flex items-center gap-2"
-            >
-              <span>Enquire About Trip Companionship</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href="tel:01178901234"
-              className="px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
-            >
-              <Phone className="w-4 h-4 text-sky-600" />
-              <span>Call 0117 890 1234</span>
-            </a>
+            <div className="pt-4 flex flex-wrap gap-4">
+              <Link
+                href="/contact?service=trips"
+                className="px-6 py-3 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-sm shadow transition-all flex items-center gap-2"
+              >
+                <span>Enquire About Trip Companionship</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <a
+                href="tel:01174960123"
+                className="px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
+              >
+                <Phone className="w-4 h-4 text-sky-600" />
+                <span>Call 0117 496 0123</span>
+              </a>
+            </div>
+          </div>
+          <div className="col-span-12 lg:col-span-5">
+            <PhotoFrame photo={photos.trips} aspect="aspect-[4/5]" eager />
           </div>
         </div>
       </section>
@@ -99,7 +106,7 @@ export default function TripsPage() {
                 hurried.
               </p>
               <p>
-                With HomeCompanions, your loved one never feels rushed. The
+                With Home Companion, your loved one never feels rushed. The
                 companion arrives at the door, assists with coats and walking
                 sticks, opens car doors, gently handles folding wheelchairs if
                 needed, and stays right by their side throughout the entire

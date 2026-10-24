@@ -5,7 +5,7 @@ import { HelpCircle, Phone, FileQuestion } from "lucide-react";
 import FAQAccordion from "@/components/FAQAccordion";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions | HomeCompanions.uk Bristol",
+  title: "Frequently Asked Questions",
   description:
     "Find clear answers on companion matching, Enhanced DBS vetting, hourly rates, visit lengths, and coverage across Bristol and the South West.",
 };
@@ -67,11 +67,11 @@ export default function FAQPage() {
                 Ask a Question Online
               </Link>
               <a
-                href="tel:01178901234"
+                href="tel:01174960123"
                 className="px-6 py-3.5 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-700 flex items-center justify-center gap-2 transition-all"
               >
                 <Phone className="w-4 h-4 text-sky-400" />
-                <span>Call 0117 890 1234</span>
+                <span>Call 0117 496 0123</span>
               </a>
             </div>
           </div>

@@ -74,8 +74,8 @@ export default function EnquiryForm({
         </p>
         <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 text-xs text-slate-500 max-w-sm mx-auto">
           Need an urgent response? Call our direct line at{" "}
-          <a href="tel:01178901234" className="text-sky-700 font-bold hover:underline">
-            0117 890 1234
+          <a href="tel:01174960123" className="text-sky-700 font-bold hover:underline">
+            0117 496 0123
           </a>
         </div>
         <button

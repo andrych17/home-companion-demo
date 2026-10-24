@@ -4,9 +4,9 @@ import { Metadata } from "next";
 import { Star, MessageSquareHeart, Phone, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Client & Family Testimonials | HomeCompanions.uk Bristol",
+  title: "Client & Family Testimonials",
   description:
-    "Read genuine reviews and heartfelt stories from families who use HomeCompanions across Bristol, Bath, and the South West.",
+    "Reviews and heartfelt stories from families who use Home Companion across Bristol, Bath, and the South West.",
 };
 
 export default function TestimonialsPage() {
@@ -31,7 +31,7 @@ export default function TestimonialsPage() {
     },
     {
       quote:
-        "Mum has early-stage vascular dementia and can be very timid with new people. We tried two large care agencies before, but having a different person turn up every time caused huge distress. HomeCompanions matched her with Sarah, and the consistency has been an absolute miracle. They are like old friends.",
+        "Mum has early-stage vascular dementia and can be very timid with new people. We tried two large care agencies before, but having a different person turn up every time caused huge distress. Home Companion matched her with Sarah, and the consistency has been an absolute miracle. They are like old friends.",
       author: "Eleanor Vance",
       role: "Daughter of client (81)",
       location: "Clifton Village, Bristol (BS8)",
@@ -49,7 +49,7 @@ export default function TestimonialsPage() {
     },
     {
       quote:
-        "Living in London while my elderly aunt lives in Bath was keeping me awake at night. HomeCompanions set up weekly visits to help her with laundry, grocery shopping, and changing her bed sheets. Their visit notes are detailed and thoughtful. Highly recommended.",
+        "Living in London while my elderly aunt lives in Bath was keeping me awake at night. Home Companion set up weekly visits to help her with laundry, grocery shopping, and changing her bed sheets. Their visit notes are detailed and thoughtful. Highly recommended.",
       author: "James Henderson",
       role: "Nephew of client (88)",
       location: "Bath & North East Somerset (BA1)",
@@ -95,7 +95,7 @@ export default function TestimonialsPage() {
               ))}
             </div>
             <div className="text-sm font-bold text-slate-800">
-              4.98 / 5.0 Rating Across 45+ Verified Families
+              4.98 / 5.0 Rating Across 45+ Families
             </div>
           </div>
         </div>
@@ -162,11 +162,11 @@ export default function TestimonialsPage() {
               Arrange a Free Visit
             </Link>
             <a
-              href="tel:01178901234"
+              href="tel:01174960123"
               className="px-6 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-700 transition-all flex items-center gap-2"
             >
               <Phone className="w-4 h-4 text-sky-400" />
-              <span>Call 0117 890 1234</span>
+              <span>Call 0117 496 0123</span>
             </a>
           </div>
         </div>

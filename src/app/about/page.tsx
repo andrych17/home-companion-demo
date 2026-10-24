@@ -13,11 +13,13 @@ import {
   CheckCircle2,
   Phone,
 } from "lucide-react";
+import PhotoFrame from "@/components/PhotoFrame";
+import { photos } from "@/lib/photos";
 
 export const metadata: Metadata = {
   title: "About Us | Dedicated Companionship Across Bristol & South West",
   description:
-    "Learn about HomeCompanions.uk, our founding mission, rigorous companion vetting, and how we bring dignified companionship to homes across Bristol.",
+    "Learn about Home Companion Demo, our founding mission, rigorous companion vetting, and how we bring dignified companionship to homes across Bristol.",
 };
 
 export default function AboutPage() {
@@ -52,23 +54,28 @@ export default function AboutPage() {
     <div className="space-y-24 py-12 sm:py-20 pb-24">
       {/* 1. Header */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/5 text-slate-800 text-[11px] font-semibold uppercase tracking-wider border border-slate-900/10">
-            <span>About HomeCompanions.uk</span>
+        <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="col-span-12 lg:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/5 text-slate-800 text-[11px] font-semibold uppercase tracking-wider border border-slate-900/10">
+              <span>About Home Companion Demo</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
+              Founded on the belief that everyone deserves a{" "}
+              <span className="font-serif italic font-normal text-sky-800 underline decoration-sky-300 decoration-wavy decoration-2">
+                trusted friend
+              </span>{" "}
+              at home.
+            </h1>
+            <p className="text-lg text-slate-600 leading-relaxed pt-2">
+              Home Companion was established in Bristol to fill the growing void
+              between cold 15-minute agency visits and full-time nursing care. We
+              offer heart-led companionship, practical daily help, and genuine
+              friendship that allows seniors to stay in the homes they love.
+            </p>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
-            Founded on the belief that everyone deserves a{" "}
-            <span className="font-serif italic font-normal text-sky-800 underline decoration-sky-300 decoration-wavy decoration-2">
-              trusted friend
-            </span>{" "}
-            at home.
-          </h1>
-          <p className="text-lg text-slate-600 leading-relaxed pt-2">
-            HomeCompanions.uk was established in Bristol to fill the growing void
-            between cold 15-minute agency visits and full-time nursing care. We
-            offer heart-led companionship, practical daily help, and genuine
-            friendship that allows seniors to stay in the homes they love.
-          </p>
+          <div className="col-span-12 lg:col-span-5">
+            <PhotoFrame photo={photos.aboutGarden} aspect="aspect-[4/5]" eager />
+          </div>
         </div>
       </section>
 
@@ -94,7 +101,7 @@ export default function AboutPage() {
                 Downs without feeling like a burden.
               </p>
               <p>
-                HomeCompanions was born to restore dignity, patience, and warmth
+                Home Companion was born to restore dignity, patience, and warmth
                 to home support. We match each client with a dedicated companion
                 who shares their interests, from classical music and baking to
                 cricket and British history.
@@ -290,11 +297,11 @@ export default function AboutPage() {
               Arrange a Free Consultation
             </Link>
             <a
-              href="tel:01178901234"
+              href="tel:01174960123"
               className="px-6 py-3 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-all flex items-center gap-2"
             >
               <Phone className="w-4 h-4 text-sky-600" />
-              <span>0117 890 1234</span>
+              <span>0117 496 0123</span>
             </a>
           </div>
         </div>
