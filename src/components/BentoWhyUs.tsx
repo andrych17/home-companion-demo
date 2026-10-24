@@ -4,8 +4,12 @@ import {
   ShieldCheck,
   HeartHandshake,
   Smartphone,
-  MapPin,
+  Clock,
+  Sparkles,
+  CheckCircle2,
   ArrowRight,
+  MessageSquare,
+  Image as ImageIcon,
 } from "lucide-react";
 
 export default function BentoWhyUs() {
@@ -14,114 +18,140 @@ export default function BentoWhyUs() {
       <div className="grid grid-cols-12 gap-5">
         {/* Main Highlight Card (col-span-12 lg:col-span-7) */}
         <div className="col-span-12 lg:col-span-7 double-bezel bg-slate-900/5 ring-1 ring-slate-900/10">
-          <div className="double-bezel-inner bg-white p-7 sm:p-10 flex flex-col justify-between h-full relative overflow-hidden">
+          <div className="double-bezel-inner bg-white p-7 sm:p-9 flex flex-col justify-between h-full relative overflow-hidden shadow-sm">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-[11px] font-semibold uppercase tracking-wider border border-rose-100">
                 <HeartHandshake className="w-3.5 h-3.5 text-rose-500" />
                 <span>Meaningful Human Connection</span>
               </div>
               <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug">
-                One Consistent Companion, Not a Revolving Door of Strangers
+                One Consistent Companion, Never a Revolving Door of Strangers
               </h3>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Most agencies send whichever carer happens to be on shift. We believe real companionship requires trust, shared laughter, and a familiar, warm face at the door. We carefully match your loved one with a dedicated companion based on shared interests, temperament, and life stories.
+                Most agencies send whichever carer happens to be on shift. We hand-match your loved one with one dedicated companion based on shared hobbies, temperament, and life stories.
               </p>
             </div>
 
-            <div className="pt-8 mt-6 border-t border-slate-100 grid grid-cols-2 sm:grid-cols-3 gap-4">
-              <div>
-                <div className="text-2xl font-extrabold text-slate-900">98%</div>
-                <div className="text-xs text-slate-500 font-medium">Companion match satisfaction</div>
+            {/* Stat Counters & Family Quote */}
+            <div className="pt-6 mt-6 border-t border-slate-100 space-y-4">
+              <div className="grid grid-cols-3 gap-3">
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div className="text-2xl font-black text-slate-900">98%</div>
+                  <div className="text-[11px] text-slate-500 font-medium">Match satisfaction</div>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div className="text-2xl font-black text-emerald-600">1-on-1</div>
+                  <div className="text-[11px] text-slate-500 font-medium">Dedicated companion</div>
+                </div>
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div className="text-2xl font-black text-sky-600">Zero</div>
+                  <div className="text-[11px] text-slate-500 font-medium">15-min rushed pop-ins</div>
+                </div>
               </div>
-              <div>
-                <div className="text-2xl font-extrabold text-slate-900">Zero</div>
-                <div className="text-xs text-slate-500 font-medium">15-minute rushed visits</div>
-              </div>
-              <div className="col-span-2 sm:col-span-1">
-                <div className="text-2xl font-extrabold text-rose-600">1-on-1</div>
-                <div className="text-xs text-slate-500 font-medium">Dedicated care & attention</div>
+
+              <div className="p-3 rounded-xl bg-amber-50/60 border border-amber-100 text-xs text-amber-950 italic flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
+                <span>“Mum feels like she gained a trusted niece, not an agency worker.” — Bristol Family</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Secondary Card 1 (col-span-12 lg:col-span-5) */}
+        {/* Secondary Card: Simulated Smartphone Reassurance (col-span-12 lg:col-span-5) */}
         <div className="col-span-12 lg:col-span-5 double-bezel bg-slate-900/5 ring-1 ring-slate-900/10">
-          <div className="double-bezel-inner bg-[#0F172A] text-white p-7 sm:p-10 flex flex-col justify-between h-full">
-            <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-sky-400 text-[11px] font-semibold uppercase tracking-wider border border-slate-700">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Gold-Standard Safeguarding</span>
+          <div className="double-bezel-inner bg-slate-900 text-white p-6 sm:p-8 flex flex-col justify-between h-full relative overflow-hidden shadow-sm">
+            {/* Subtle glow */}
+            <div className="absolute top-0 right-0 w-36 h-36 rounded-full bg-emerald-500/10 blur-2xl pointer-events-none" />
+
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-emerald-400 text-[11px] font-semibold uppercase tracking-wider border border-slate-700">
+                <Smartphone className="w-3.5 h-3.5" />
+                <span>Real-Time Family Reassurance</span>
               </div>
-              <h3 className="text-2xl font-bold tracking-tight text-white leading-snug">
-                Enhanced DBS & Rigorous Vetting
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white leading-snug">
+                Post-Visit Notes & Photos Sent to Your Phone
               </h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                Every companion undergoes enhanced police criminal record checks, in-person interviews, professional reference verification, and comprehensive training in safeguarding and dementia awareness.
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                Whether you are at work in Bristol or living abroad, stay reassured with live summaries after every visit.
               </p>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-slate-800 space-y-2.5 text-xs text-slate-300">
+            {/* Simulated Smartphone Alert Mockup */}
+            <div className="mt-5 p-3.5 rounded-2xl bg-slate-800/90 border border-slate-700 text-xs space-y-2">
+              <div className="flex items-center justify-between text-[11px] text-slate-400">
+                <span className="flex items-center gap-1.5 font-semibold text-slate-200">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  Home Companion Visit Log
+                </span>
+                <span>Today, 2:45 PM</span>
+              </div>
+              <p className="text-slate-200 leading-relaxed text-[11px]">
+                “Claire visited Mum in Redland. Enjoyed a scenic drive to Ashton Court & tea at the café. Mum was smiling and ate a full lunch.”
+              </p>
+              <div className="flex items-center gap-2 pt-1 text-[10px] text-emerald-400 font-semibold">
+                <ImageIcon className="w-3 h-3" />
+                <span>2 photos uploaded to family portal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Third Card: Vetting & Safety (col-span-12 sm:col-span-6 lg:col-span-5) */}
+        <div className="col-span-12 sm:col-span-6 lg:col-span-5 double-bezel bg-slate-900/5 ring-1 ring-slate-900/10">
+          <div className="double-bezel-inner bg-white p-6 sm:p-8 flex flex-col justify-between h-full shadow-sm">
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <h4 className="text-lg font-bold text-slate-900">
+                Gold-Standard Vetting & Safety
+              </h4>
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                Every companion is in-person interviewed, police-vetted, and fully insured.
+              </p>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-slate-100 space-y-2 text-xs text-slate-700">
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span>100% Enhanced Police DBS Checked</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>£5,000,000 Public Liability Insurance</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>Strict photo ID & continuous oversight</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>Emergency protocols & family alerts</span>
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span>Dementia Awareness & Safeguarding Vetted</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Third Card (col-span-12 sm:col-span-6 lg:col-span-5) */}
-        <div className="col-span-12 sm:col-span-6 lg:col-span-5 double-bezel bg-slate-900/5 ring-1 ring-slate-900/10">
-          <div className="double-bezel-inner bg-white p-7 sm:p-8 flex flex-col justify-between h-full">
-            <div className="space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100">
-                <Smartphone className="w-5 h-5" />
-              </div>
-              <h4 className="text-lg font-bold text-slate-900">
-                Family Peace of Mind & Visit Notes
-              </h4>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Whether you live down the road in Bishopston or across the globe in Australia, we send gentle post-visit summaries so you always know how your loved one is doing, eating, and feeling.
-              </p>
-            </div>
-            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-700">
-              <span>Real-time family reassurance</span>
-              <span className="text-emerald-600">Included free</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Fourth Card (col-span-12 sm:col-span-6 lg:col-span-7) */}
+        {/* Fourth Card: Minimum 1-Hour Visits (col-span-12 sm:col-span-6 lg:col-span-7) */}
         <div className="col-span-12 sm:col-span-6 lg:col-span-7 double-bezel bg-slate-900/5 ring-1 ring-slate-900/10">
-          <div className="double-bezel-inner bg-white p-7 sm:p-8 flex flex-col justify-between h-full">
+          <div className="double-bezel-inner bg-white p-6 sm:p-8 flex flex-col justify-between h-full shadow-sm">
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100">
-                <MapPin className="w-5 h-5" />
+                <Clock className="w-5 h-5" />
               </div>
               <h4 className="text-lg font-bold text-slate-900">
-                Local Bristol & South West Companions
+                Unhurried, Dignified Time (Min. 1 Hour)
               </h4>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Our companions live locally in Bristol and the surrounding South West counties. We know the quietest times at the Bristol Museum, the step-free entrances to Ashton Court cafe, and how to navigate Southmead and Bristol Royal Infirmary without stress.
+                No 15-minute stopwatch rush. Companions have ample time to listen, make proper tea, play scrabble, or take relaxed walks at your loved one’s pace.
               </p>
             </div>
-            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+
+            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold">
+              <span className="text-slate-500">Flexible 1 to 4 hr slots</span>
               <Link
-                href="/areas"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-700 hover:text-sky-900"
+                href="/about"
+                className="inline-flex items-center gap-1 text-sky-700 hover:text-sky-900"
               >
-                <span>View Bristol postcodes & coverage map</span>
+                <span>Read our story</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
-              <span className="text-xs text-slate-500">BS1–BS40 & Bath BA1/BA2</span>
             </div>
           </div>
         </div>
