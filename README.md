@@ -1,4 +1,4 @@
-# HomeCompanions.uk
+# Home Companion Demo (HomeCompanions.uk)
 
 > Dedicated, compassionate home support & companionship services across Bristol and the South West.
 
@@ -76,8 +76,8 @@ This codebase strictly implements high-end human-first design directives:
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/andrych17/homecompanions.git
-cd homecompanions
+git clone https://github.com/andrych17/home-companion-demo.git
+cd home-companion-demo
 pnpm install
 ```
 
