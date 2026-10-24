@@ -1,414 +1,334 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import Logo from "./Logo";
-import {
-  Phone,
-  ChevronDown,
-  Menu,
-  X,
-  ArrowRight,
-  Car,
-  Flower2,
-  CalendarCheck,
-  Sparkles,
-  Dog,
-  HelpCircle,
-  MessageSquareHeart,
-  Users,
-} from "lucide-react";
+import { photos, type Photo } from "@/lib/photos";
+
+type MenuKey = "about" | "support";
+
+const supportLinks: { title: string; href: string; desc: string; photo: Photo }[] = [
+  {
+    title: "Taking trips",
+    href: "/types-of-support/trips",
+    desc: "Outings, errands, shopping and days out",
+    photo: photos.trips,
+  },
+  {
+    title: "Gardening support",
+    href: "/types-of-support/gardening",
+    desc: "Light garden care and fresh air together",
+    photo: photos.gardening,
+  },
+  {
+    title: "Appointments escort",
+    href: "/types-of-support/appointments",
+    desc: "GP, hospital, dentist and optician visits",
+    photo: photos.appointments,
+  },
+  {
+    title: "Housework & tidying",
+    href: "/types-of-support/housework",
+    desc: "Laundry, light cleaning and a warm lunch",
+    photo: photos.housework,
+  },
+  {
+    title: "Dog walking & pets",
+    href: "/types-of-support/dog-walking",
+    desc: "Gentle walks, feeding and vet trips",
+    photo: photos.dogWalking,
+  },
+];
+
+const aboutLinks = [
+  { title: "About us", href: "/about", desc: "Who we are and how we vet companions" },
+  { title: "FAQ & pricing", href: "/faq", desc: "Visits, DBS checks and rates" },
+  { title: "Testimonials", href: "/testimonials", desc: "Stories from families across Bristol" },
+];
+
+const PHONE_DISPLAY = "0117 496 0123";
+const PHONE_HREF = "tel:01174960123";
+
+function ServiceLink({
+  item,
+  onNavigate,
+}: {
+  item: (typeof supportLinks)[number];
+  onNavigate: () => void;
+}) {
+  return (
+    <Link
+      href={item.href}
+      onClick={onNavigate}
+      className="group/item flex items-center gap-3 rounded-xl p-2 hover:bg-slate-900/[0.04] transition-colors"
+    >
+      <span className="relative w-14 h-14 shrink-0 overflow-hidden rounded-lg bg-slate-100">
+        <Image
+          src={item.photo.src}
+          alt=""
+          fill
+          sizes="56px"
+          className="object-cover spring-transition group-hover/item:scale-105"
+          style={{ objectPosition: item.photo.position }}
+        />
+      </span>
+      <span className="min-w-0">
+        <span className="block text-sm font-semibold text-slate-900">{item.title}</span>
+        <span className="block text-xs text-slate-500 leading-snug">{item.desc}</span>
+      </span>
+    </Link>
+  );
+}
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [supportDropdownOpen, setSupportDropdownOpen] = useState(false);
-  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<MenuKey | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const supportLinks = [
-    {
-      title: "Taking Trips",
-      href: "/types-of-support/trips",
-      desc: "Social outings, errands, shopping & days out",
-      icon: Car,
-      color: "bg-rose-50 text-rose-600 border-rose-100",
-    },
-    {
-      title: "Gardening Support",
-      href: "/types-of-support/gardening",
-      desc: "Light garden care, planting & outdoor companionship",
-      icon: Flower2,
-      color: "bg-emerald-50 text-emerald-600 border-emerald-100",
-    },
-    {
-      title: "Appointments Escort",
-      href: "/types-of-support/appointments",
-      desc: "GP, hospital, hairdresser & dental accompaniment",
-      icon: CalendarCheck,
-      color: "bg-amber-50 text-amber-600 border-amber-100",
-    },
-    {
-      title: "Housework & Tidying",
-      href: "/types-of-support/housework",
-      desc: "Light cleaning, laundry, meal prep & home comfort",
-      icon: Sparkles,
-      color: "bg-sky-50 text-sky-600 border-sky-100",
-    },
-    {
-      title: "Dog Walking & Pets",
-      href: "/types-of-support/dog-walking",
-      desc: "Pet exercise, gentle dog walks & feeding help",
-      icon: Dog,
-      color: "bg-indigo-50 text-indigo-600 border-indigo-100",
-    },
-  ];
-
-  const aboutLinks = [
-    {
-      title: "About Our Team",
-      href: "/about",
-      desc: "Our ethos, companion vetting & personal matching",
-      icon: Users,
-    },
-    {
-      title: "FAQ & Pricing",
-      href: "/faq",
-      desc: "Clear answers on visits, DBS checks & rates",
-      icon: HelpCircle,
-    },
-    {
-      title: "Family Testimonials",
-      href: "/testimonials",
-      desc: "Real stories from families across Bristol",
-      icon: MessageSquareHeart,
-    },
-  ];
-
-  const isActive = (path: string) => {
-    if (path === "/" && pathname === "/") return true;
-    if (path !== "/" && pathname.startsWith(path)) return true;
-    return false;
+  const isActive = (path: string) =>
+    path === "/" ? pathname === "/" : pathname.startsWith(path);
+  const aboutActive = ["/about", "/faq", "/testimonials"].some(isActive);
+  const closeAll = () => {
+    setOpenMenu(null);
+    setMobileOpen(false);
   };
 
+  // Mobile drawer: lock page scroll, close on Escape or when the desktop nav takes over
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMobileOpen(false);
+    const desktop = window.matchMedia("(min-width: 1024px)");
+    const onResize = () => desktop.matches && setMobileOpen(false);
+    document.addEventListener("keydown", onKey);
+    desktop.addEventListener("change", onResize);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      document.removeEventListener("keydown", onKey);
+      desktop.removeEventListener("change", onResize);
+    };
+  }, [mobileOpen]);
+
+  const linkClass = (active: boolean) =>
+    `relative inline-flex items-center gap-1 px-3 py-2 text-[15px] transition-colors after:absolute after:left-3 after:right-3 after:-bottom-0.5 after:h-[2px] after:rounded-full after:bg-rose-500 after:transition-opacity ${
+      active
+        ? "text-slate-950 font-semibold after:opacity-100"
+        : "text-slate-600 hover:text-slate-950 after:opacity-0"
+    }`;
+
+  // Hover opens on mouse only; touch and keyboard use the button
+  const dropdownProps = (key: MenuKey) => ({
+    onPointerEnter: (e: React.PointerEvent) => e.pointerType === "mouse" && setOpenMenu(key),
+    onPointerLeave: (e: React.PointerEvent) => e.pointerType === "mouse" && setOpenMenu(null),
+    onBlur: (e: React.FocusEvent<HTMLDivElement>) => {
+      if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setOpenMenu(null);
+    },
+    onKeyDown: (e: React.KeyboardEvent) => e.key === "Escape" && setOpenMenu(null),
+  });
+
+  const panelClass = (open: boolean) =>
+    `absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 transition-[opacity,translate] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+      open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1 invisible pointer-events-none"
+    }`;
+
   return (
-    <header className="sticky top-0 z-50 bg-[#FBFBFC]/95 backdrop-blur-md border-b border-slate-200/80 transition-all">
-      {/* Top micro banner */}
-      <div className="bg-[#0F172A] text-slate-300 text-xs py-1.5 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 text-emerald-400 font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Bristol & South West Team Available Today
-            </span>
-            <span className="hidden md:inline text-slate-500">•</span>
-            <span className="hidden md:inline text-slate-400">
-              Enhanced DBS Checked & Fully Insured
-            </span>
-          </div>
-          <div className="flex items-center gap-4 text-[11px] sm:text-xs">
-            <a
-              href="tel:01174960123"
-              className="inline-flex items-center gap-1.5 text-white hover:text-sky-300 font-semibold transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-sky-400" />
-              <span>0117 496 0123</span>
-            </a>
-            <span className="text-slate-600">|</span>
-            <Link
-              href="/contact"
-              className="text-slate-300 hover:text-white transition-colors"
-            >
-              Support Hours: 8am - 7pm
-            </Link>
-          </div>
-        </div>
-      </div>
+    <header className="sticky top-0 z-50 bg-[#FBFBFC]/90 backdrop-blur-md border-b border-slate-900/[0.06]">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[110] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow"
+      >
+        Skip to content
+      </a>
 
-      {/* Main navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Logo variant="badge" />
+        <div className="flex items-center justify-between gap-6 h-16 lg:h-[76px] xl:grid xl:grid-cols-[1fr_auto_1fr]">
+          <Logo />
 
-          {/* Desktop Nav Items */}
-          <nav
-            className="hidden lg:flex items-center gap-1 font-medium text-sm text-slate-700"
-            aria-label="Main Navigation"
-          >
-            <Link
-              href="/"
-              className={`px-3.5 py-2 rounded-xl transition-colors ${
-                isActive("/")
-                  ? "text-sky-700 font-semibold bg-sky-50"
-                  : "hover:text-slate-950 hover:bg-slate-100"
-              }`}
-            >
-              Home
-            </Link>
-
-            {/* About Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setAboutDropdownOpen(true)}
-              onMouseLeave={() => setAboutDropdownOpen(false)}
-            >
+          {/* Desktop navigation */}
+          <nav className="hidden lg:flex items-center gap-1" aria-label="Main">
+            <div className="relative" {...dropdownProps("support")}>
               <button
                 type="button"
-                className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-xl transition-colors ${
-                  isActive("/about") || isActive("/faq") || isActive("/testimonials")
-                    ? "text-sky-700 font-semibold bg-sky-50"
-                    : "hover:text-slate-950 hover:bg-slate-100"
-                }`}
-                aria-expanded={aboutDropdownOpen}
+                aria-expanded={openMenu === "support"}
+                aria-controls="menu-support"
+                onClick={() => setOpenMenu(openMenu === "support" ? null : "support")}
+                className={linkClass(isActive("/types-of-support"))}
               >
-                <span>About Us</span>
-                <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200" />
+                Types of support
+                <ChevronDown
+                  className={`w-3.5 h-3.5 text-slate-400 spring-transition ${
+                    openMenu === "support" ? "rotate-180" : ""
+                  }`}
+                />
               </button>
-
-              {aboutDropdownOpen && (
-                <div className="absolute top-full left-0 w-72 pt-2 z-50">
-                  <div className="p-2 bg-white rounded-2xl shadow-xl border border-slate-100 ring-1 ring-slate-900/5">
-                    {aboutLinks.map((item) => {
-                      const Icon = item.icon;
-                      return (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                        >
-                          <div className="p-2 rounded-lg bg-slate-100 text-slate-700 group-hover:bg-sky-50 group-hover:text-sky-600 transition-colors">
-                            <Icon className="w-4 h-4" />
-                          </div>
-                          <div>
-                            <div className="text-sm font-semibold text-slate-900 group-hover:text-sky-600 transition-colors">
-                              {item.title}
-                            </div>
-                            <div className="text-xs text-slate-500 leading-snug">
-                              {item.desc}
-                            </div>
-                          </div>
-                        </Link>
-                      );
-                    })}
+              <div id="menu-support" className={panelClass(openMenu === "support")}>
+                <div className="w-[560px] rounded-2xl bg-white p-2 ring-1 ring-slate-900/[0.08] shadow-[0_24px_48px_-16px_rgba(15,23,42,0.18)]">
+                  <div className="grid grid-cols-2 gap-1">
+                    {supportLinks.map((item) => (
+                      <ServiceLink key={item.href} item={item} onNavigate={closeAll} />
+                    ))}
+                    <Link
+                      href="/types-of-support"
+                      onClick={closeAll}
+                      className="flex flex-col justify-center rounded-xl bg-[#0F172A] px-4 py-3 text-white hover:bg-[#1E293B] transition-colors"
+                    >
+                      <span className="font-serif text-lg leading-tight">Not sure what fits?</span>
+                      <span className="text-xs text-slate-300">Compare all types of support</span>
+                    </Link>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
 
-            <Link
-              href="/areas"
-              className={`px-3.5 py-2 rounded-xl transition-colors ${
-                isActive("/areas")
-                  ? "text-sky-700 font-semibold bg-sky-50"
-                  : "hover:text-slate-950 hover:bg-slate-100"
-              }`}
-            >
-              Areas Covered
-            </Link>
-
-            {/* Types of Support Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setSupportDropdownOpen(true)}
-              onMouseLeave={() => setSupportDropdownOpen(false)}
-            >
-              <Link
-                href="/types-of-support"
-                className={`inline-flex items-center gap-1 px-3.5 py-2 rounded-xl transition-colors ${
-                  isActive("/types-of-support")
-                    ? "text-sky-700 font-semibold bg-sky-50"
-                    : "hover:text-slate-950 hover:bg-slate-100"
-                }`}
-                aria-expanded={supportDropdownOpen}
+            <div className="relative" {...dropdownProps("about")}>
+              <button
+                type="button"
+                aria-expanded={openMenu === "about"}
+                aria-controls="menu-about"
+                onClick={() => setOpenMenu(openMenu === "about" ? null : "about")}
+                className={linkClass(aboutActive)}
               >
-                <span>Types of Support</span>
-                <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200" />
-              </Link>
-
-              {supportDropdownOpen && (
-                <div className="absolute top-full left-0 w-96 pt-2 z-50">
-                  <div className="p-3 bg-white rounded-2xl shadow-xl border border-slate-100 ring-1 ring-slate-900/5">
-                    <div className="px-3 py-2 border-b border-slate-100 mb-2 flex items-center justify-between">
-                      <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                        Tailored In-Home Services
-                      </span>
-                      <Link
-                        href="/types-of-support"
-                        className="text-xs text-sky-600 font-medium hover:underline flex items-center gap-1"
-                      >
-                        View all <ArrowRight className="w-3 h-3" />
-                      </Link>
-                    </div>
-                    <div className="space-y-1">
-                      {supportLinks.map((item) => {
-                        const Icon = item.icon;
-                        return (
-                          <Link
-                            key={item.href}
-                            href={item.href}
-                            className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group"
-                          >
-                            <div
-                              className={`p-2 rounded-xl border ${item.color} shrink-0`}
-                            >
-                              <Icon className="w-4 h-4" />
-                            </div>
-                            <div>
-                              <div className="text-sm font-semibold text-slate-900 group-hover:text-sky-600 transition-colors">
-                                {item.title}
-                              </div>
-                              <div className="text-xs text-slate-500 leading-snug">
-                                {item.desc}
-                              </div>
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
+                About
+                <ChevronDown
+                  className={`w-3.5 h-3.5 text-slate-400 spring-transition ${
+                    openMenu === "about" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              <div id="menu-about" className={panelClass(openMenu === "about")}>
+                <div className="w-72 rounded-2xl bg-white p-2 ring-1 ring-slate-900/[0.08] shadow-[0_24px_48px_-16px_rgba(15,23,42,0.18)]">
+                  {aboutLinks.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={closeAll}
+                      className="block rounded-xl px-3 py-2.5 hover:bg-slate-900/[0.04] transition-colors"
+                    >
+                      <span className="block text-sm font-semibold text-slate-900">{item.title}</span>
+                      <span className="block text-xs text-slate-500">{item.desc}</span>
+                    </Link>
+                  ))}
                 </div>
-              )}
+              </div>
             </div>
 
-            <Link
-              href="/contact"
-              className={`px-3.5 py-2 rounded-xl transition-colors ${
-                isActive("/contact")
-                  ? "text-sky-700 font-semibold bg-sky-50"
-                  : "hover:text-slate-950 hover:bg-slate-100"
-              }`}
-            >
+            <Link href="/areas" className={linkClass(isActive("/areas"))}>
+              Areas covered
+            </Link>
+            <Link href="/contact" className={linkClass(isActive("/contact"))}>
               Contact
             </Link>
           </nav>
 
-          {/* Action button (Nested Pill with circle icon) */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Desktop actions */}
+          <div className="hidden lg:flex items-center justify-end gap-5">
+            <a href={PHONE_HREF} className="group hidden xl:flex flex-col items-end leading-tight">
+              <span className="text-[11px] text-slate-500">Bristol team, 8am to 7pm</span>
+              <span className="text-[15px] font-semibold tabular-nums text-slate-900 group-hover:text-sky-700 transition-colors">
+                {PHONE_DISPLAY}
+              </span>
+            </a>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 bg-[#0F172A] hover:bg-[#1E293B] text-white pl-5 pr-2 py-2 rounded-full font-semibold text-sm shadow-sm transition-all duration-300 hover:shadow-md"
+              className="rounded-full bg-[#0F172A] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#1E293B] transition-colors"
             >
-              <span>Make an Enquiry</span>
-              <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
-                <ArrowRight className="w-4 h-4 text-white" />
-              </div>
+              Make an enquiry
             </Link>
           </div>
 
-          {/* Mobile hamburger button */}
-          <div className="flex lg:hidden">
+          {/* Mobile actions */}
+          <div className="flex lg:hidden items-center gap-1">
+            <a
+              href={PHONE_HREF}
+              aria-label={`Call ${PHONE_DISPLAY}`}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-700 hover:bg-slate-900/5"
+            >
+              <Phone className="w-[18px] h-[18px]" />
+            </a>
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none"
-              aria-label="Toggle navigation menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="inline-flex h-10 items-center gap-2 rounded-full px-2.5 sm:pl-3 sm:pr-4 text-sm font-semibold text-slate-900 ring-1 ring-slate-900/10 hover:bg-slate-900/5"
             >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              <span className="hidden sm:inline">{mobileOpen ? "Close" : "Menu"}</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-4 pb-8 space-y-4">
-          <div className="grid grid-cols-1 gap-1">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`px-3 py-2.5 rounded-xl font-medium text-sm ${
-                isActive("/") ? "bg-sky-50 text-sky-700" : "text-slate-700"
-              }`}
-            >
-              Home
-            </Link>
-
-            <div className="pt-2 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">
-              About & Trust
-            </div>
-            <Link
-              href="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/faq"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50"
-            >
-              FAQ
-            </Link>
-            <Link
-              href="/testimonials"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50"
-            >
-              Testimonials
-            </Link>
-
-            <div className="pt-2 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">
-              Support Services
-            </div>
-            <Link
-              href="/types-of-support"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50"
-            >
-              All Types of Support
-            </Link>
-            {supportLinks.map((item) => (
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <div
+          id="mobile-menu"
+          className="lg:hidden absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto bg-[#FBFBFC] border-t border-slate-900/[0.06]"
+        >
+          <div className="max-w-xl mx-auto px-5 pt-6 pb-10 space-y-8">
+            <section>
+              <p className="px-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Types of support
+              </p>
+              <div className="mt-2">
+                {supportLinks.map((item) => (
+                  <ServiceLink key={item.href} item={item} onNavigate={closeAll} />
+                ))}
+              </div>
               <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="pl-6 pr-3 py-2 rounded-xl text-sm text-slate-600 hover:bg-slate-50 flex items-center justify-between"
+                href="/types-of-support"
+                onClick={closeAll}
+                className="mt-2 inline-block px-2 text-sm font-semibold text-sky-700 underline underline-offset-4"
               >
-                <span>{item.title}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+                Compare all types of support
               </Link>
-            ))}
+            </section>
 
-            <div className="pt-2 pb-1 px-3 text-xs font-semibold text-slate-400 uppercase tracking-wider">
-              Coverage & Contact
+            <section>
+              <p className="px-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Get to know us
+              </p>
+              <ul className="mt-2 divide-y divide-slate-900/[0.06]">
+                {[...aboutLinks, { title: "Areas covered", href: "/areas" }, { title: "Contact", href: "/contact" }].map(
+                  (item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={closeAll}
+                        aria-current={isActive(item.href) ? "page" : undefined}
+                        className={`block px-2 py-3 font-serif text-2xl ${
+                          isActive(item.href) ? "text-rose-600" : "text-slate-900"
+                        }`}
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </section>
+
+            <div className="grid gap-3">
+              <a
+                href={PHONE_HREF}
+                className="flex items-center justify-center gap-2 rounded-full py-3.5 text-sm font-semibold text-slate-900 ring-1 ring-slate-900/15"
+              >
+                <Phone className="w-4 h-4" />
+                Call {PHONE_DISPLAY}
+              </a>
+              <Link
+                href="/contact"
+                onClick={closeAll}
+                className="flex items-center justify-center rounded-full bg-[#0F172A] py-3.5 text-sm font-semibold text-white"
+              >
+                Make an enquiry
+              </Link>
             </div>
-            <Link
-              href="/areas"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50"
-            >
-              Areas Covered (Bristol & South West)
-            </Link>
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50"
-            >
-              Contact Us
-            </Link>
-          </div>
-
-          <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
-            <a
-              href="tel:01174960123"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl bg-slate-100 text-slate-800 font-semibold text-sm"
-            >
-              <Phone className="w-4 h-4 text-sky-600" />
-              <span>Call 0117 496 0123</span>
-            </a>
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-2xl bg-[#0F172A] text-white font-semibold text-sm"
-            >
-              <span>Make an Enquiry</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       )}

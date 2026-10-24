@@ -52,7 +52,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 py-12 border-b border-slate-800/80">
           {/* Brand & Mission */}
           <div className="lg:col-span-2 space-y-4">
-            <Logo variant="badge" />
+            <Logo variant="dark" />
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed mt-4">
               Providing heartfelt companionship and practical home support
               across Bristol and the South West. Helping loved ones maintain
@@ -193,7 +193,7 @@ export default function Footer() {
                 className="flex items-start gap-2.5 hover:text-white transition-colors"
               >
                 <Mail className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
-                <span>hello@homecompanion.example</span>
+                <span className="[overflow-wrap:anywhere]">hello@homecompanion.example</span>
               </a>
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-amber-400 mt-0.5 shrink-0" />

@@ -84,3 +84,9 @@ body {
   from { transform: translateX(-100%); }
   to { transform: translateX(300%); }
 }
+
+/* Visible keyboard focus everywhere (follows each element's border radius) */
+:focus-visible {
+  outline: 2px solid var(--color-brand-blue);
+  outline-offset: 2px;
+}
