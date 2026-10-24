@@ -55,10 +55,10 @@ export default function TrustTicker() {
                     <Icon className="w-4 h-4" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-xs font-bold text-slate-900 truncate">
+                    <div className="text-xs font-bold text-slate-900 leading-snug">
                       {c.title}
                     </div>
-                    <div className="text-[11px] text-slate-500 truncate">
+                    <div className="text-[11px] text-slate-500 leading-snug">
                       {c.subtitle}
                     </div>
                   </div>

@@ -6,7 +6,7 @@ them with the client's own photos of real companions before launch.
 
 | File | Source |
 | --- | --- |
-| companion-visit.jpg | https://unsplash.com/photos/nurse-smiling-with-elderly-patient-in-room-dMhB7w99ju8 |
+| hero-support.jpg | https://unsplash.com/photos/caregiver-assists-elderly-woman-with-walker-2obyM4zYt3Y |
 | about-garden.jpg | https://unsplash.com/photos/a-man-and-a-woman-standing-outside-lNTbuoYMSro |
 | trips.jpg | https://unsplash.com/photos/elderly-couple-walking-on-seaside-promenade-wERzffHJkcY |
 | gardening.jpg | https://unsplash.com/photos/two-older-women-are-gardening-in-a-garden-14zJoKPpA7g |

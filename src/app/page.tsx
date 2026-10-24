@@ -12,7 +12,7 @@ import {
   ArrowRight,
   Phone,
   CheckCircle2,
-  Check,
+  Heart,
 } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import { photos } from "@/lib/photos";
@@ -98,163 +98,93 @@ export default function HomePage() {
 
   return (
     <div className="space-y-16 sm:space-y-20 pb-20 overflow-hidden">
-      {/* 1. HERO SECTION (Asymmetric, Anti-AI-slop design with Ambient Glow) */}
-      <section className="relative pt-6 sm:pt-14">
-        {/* Subtle Ambient Radial Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-[radial-gradient(ellipse_60%_50%_at_50%_-10%,rgba(14,165,233,0.12),rgba(255,255,255,0))] pointer-events-none" />
+      {/* 1. HERO: full-bleed photo first. Desktop overlays the copy on a
+          navy wash from the left; mobile stacks the copy under the photo. */}
+      <section className="relative isolate bg-[#0F172A] text-white">
+        <div className="relative h-[62svh] min-h-[380px] max-h-[600px] lg:max-h-none lg:absolute lg:inset-0 lg:h-auto lg:min-h-0">
+          <Image
+            src={photos.heroSupport.src}
+            alt={photos.heroSupport.alt}
+            fill
+            placeholder="blur"
+            sizes="100vw"
+            loading="eager"
+            fetchPriority="high"
+            className="object-cover"
+            style={{ objectPosition: photos.heroSupport.position }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-[#0F172A]/10 to-transparent lg:bg-gradient-to-r lg:from-[#0F172A]/90 lg:via-[#0F172A]/45 lg:to-transparent" />
+        </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Content (col-span-12 lg:col-span-7) */}
-            <div className="col-span-12 lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 text-slate-800 text-[11px] font-semibold uppercase tracking-wider border border-slate-900/10">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>★ 4.9/5 Rated by 80+ Bristol Families • DBS Vetted</span>
-              </div>
-
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-950 leading-[1.08]">
-                Warm, dignified home support that feels like{" "}
-                <span className="font-serif italic font-normal text-sky-800 underline decoration-sky-300 decoration-wavy decoration-2">
-                  family
-                </span>
-                .
-              </h1>
-
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl font-normal">
-                Trusted, police-checked companions to help seniors maintain
-                independence at home. From scenic outings and hospital visits to
-                light gardening, housework, and dog walking.
-              </p>
-
-              {/* Action Buttons (Double-nested CTA) */}
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <Link
-                  href="/contact"
-                  className="group inline-flex items-center justify-center gap-3 bg-[#0F172A] hover:bg-[#1E293B] text-white pl-6 pr-2.5 py-3.5 rounded-full font-bold text-sm shadow-md transition-all duration-300 hover:shadow-lg"
-                >
-                  <span>Arrange a Free Introduction</span>
-                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
-                    <ArrowRight className="w-4 h-4 text-white" />
-                  </div>
-                </Link>
-
-                <a
-                  href="tel:01174960123"
-                  className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-200/90 shadow-xs transition-all"
-                >
-                  <Phone className="w-4 h-4 text-sky-600" />
-                  <span>Call Bristol Office: 0117 496 0123</span>
-                </a>
-              </div>
-
-              {/* Social Proof & Trust Badges */}
-              <div className="pt-5 border-t border-slate-200/80 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-slate-600 font-medium">
-                <div className="flex items-center gap-1.5 text-amber-500 font-bold">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                  <span className="text-slate-900 ml-1">4.9/5 TrustScore</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-600">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>Enhanced Police DBS</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-600">
-                  <CheckCircle2 className="w-4 h-4 text-sky-600" />
-                  <span>£5M Insured</span>
-                </div>
-              </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 pb-12 lg:mt-0 lg:pb-0 lg:min-h-[calc(100svh-76px)] lg:flex lg:items-center">
+          <div className="max-w-[34rem] space-y-5 lg:py-24">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/20 backdrop-blur-md text-[10px] font-medium uppercase tracking-[0.2em]">
+              <Heart className="w-3.5 h-3.5 text-rose-300 fill-rose-300" />
+              <span>Bristol & the South West</span>
             </div>
 
-            {/* Right Card (col-span-12 lg:col-span-5) - Double-bezel companion profile preview */}
-            <div className="col-span-12 lg:col-span-5">
-              <div className="double-bezel bg-slate-900/5 ring-1 ring-slate-900/10">
-                <div className="double-bezel-inner bg-white p-6 sm:p-7 shadow-sm overflow-hidden">
-                  <div className="relative -mx-6 -mt-6 sm:-mx-7 sm:-mt-7 mb-5 aspect-[16/10] bg-slate-100">
-                    <Image
-                      src={photos.companionVisit.src}
-                      alt={photos.companionVisit.alt}
-                      fill
-                      placeholder="blur"
-                      sizes="(min-width: 1024px) 40vw, 100vw"
-                      loading="eager"
-                      fetchPriority="high"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70" />
-                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
-                      <div className="flex items-center gap-1.5 font-semibold">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>Active in Clifton & Redland</span>
-                      </div>
-                      <span className="px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-medium">
-                        Same Companion Always
-                      </span>
-                    </div>
-                  </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05]">
+              Growing older at home
+              <span className="block font-serif italic font-normal text-amber-300">
+                and never alone.
+              </span>
+            </h1>
 
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3.5">
-                      <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex flex-col items-center justify-center font-bold text-sm shadow-xs shrink-0">
-                        <span>HC</span>
-                        <span className="text-[8px] uppercase tracking-wider text-sky-300 font-normal">
-                          Bristol
-                        </span>
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center justify-between">
-                          <h3 className="font-bold text-slate-900 text-base">
-                            Claire M.
-                          </h3>
-                          <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
-                            Verified DBS
-                          </span>
-                        </div>
-                        <p className="text-xs text-slate-500">
-                          Dedicated Companion • 3+ years with local families
-                        </p>
-                      </div>
-                    </div>
+            <p className="text-base sm:text-lg text-white/80 leading-relaxed">
+              A friendly, DBS-checked companion for outings, appointments,
+              housework or just a good chat over tea.
+            </p>
 
-                    <div className="p-3 rounded-xl bg-slate-50 text-xs text-slate-700 leading-relaxed border border-slate-100 italic">
-                      “I love spending quiet afternoons sharing a pot of Earl Grey tea, helping in the garden, and taking scenic strolls around Ashton Court.”
-                    </div>
+            <div className="pt-1 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-slate-100 text-[#0F172A] pl-6 pr-2.5 py-3 rounded-full font-bold text-sm spring-transition"
+              >
+                <span>Arrange a free introduction</span>
+                <span className="w-8 h-8 rounded-full bg-[#0F172A] text-white flex items-center justify-center spring-transition group-hover:translate-x-1">
+                  <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
 
-                    {/* Visual Feature Tags */}
-                    <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-600">
-                      <div className="flex items-center gap-1.5 p-1.5 rounded-lg bg-slate-50">
-                        <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                        <span>Enhanced DBS</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 p-1.5 rounded-lg bg-slate-50">
-                        <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                        <span>Insured Driver</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 p-1.5 rounded-lg bg-slate-50">
-                        <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                        <span>Dementia Aware</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 p-1.5 rounded-lg bg-slate-50">
-                        <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                        <span>Pet Friendly</span>
-                      </div>
-                    </div>
+              <a
+                href="tel:01174960123"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/25 backdrop-blur-md font-semibold text-sm spring-transition"
+              >
+                <Phone className="w-4 h-4 text-amber-300" />
+                <span>0117 496 0123</span>
+              </a>
+            </div>
 
-                    <div className="pt-1">
-                      <Link
-                        href="/contact?companion=Claire"
-                        className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#0F172A] hover:bg-[#1E293B] text-white font-semibold text-xs transition-colors"
-                      >
-                        <span>Meet a companion like Claire</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+            <div className="pt-4 border-t border-white/15 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-white/75 font-medium">
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
+                ))}
+                <span className="ml-1 text-white">4.9/5 from 80+ families</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-emerald-300" />
+                <span>Enhanced DBS</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-sky-300" />
+                <span>£5M insured</span>
               </div>
             </div>
           </div>
         </div>
+
+        {/* Small human note pinned to the photo, desktop only */}
+        <figure className="hidden lg:block absolute bottom-10 right-8 xl:right-12 max-w-[17rem] p-1.5 rounded-[1.5rem] bg-white/10 ring-1 ring-white/20 backdrop-blur-md">
+          <div className="rounded-[calc(1.5rem-0.375rem)] bg-white/90 px-5 py-4 text-slate-800 shadow-[inset_0_1px_1px_rgba(255,255,255,0.6)]">
+            <blockquote className="font-serif italic text-[15px] leading-snug">
+              “Tuesdays with Claire are the best part of my week.”
+            </blockquote>
+            <figcaption className="mt-2 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+              Margaret, 84 · Redland
+            </figcaption>
+          </div>
+        </figure>
       </section>
 
       {/* 2. TRUST & CREDIBILITY TICKER */}

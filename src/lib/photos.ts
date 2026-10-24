@@ -1,5 +1,5 @@
 import type { StaticImageData } from "next/image";
-import companionVisit from "@/assets/photos/companion-visit.jpg";
+import heroSupport from "@/assets/photos/hero-support.jpg";
 import aboutGarden from "@/assets/photos/about-garden.jpg";
 import trips from "@/assets/photos/trips.jpg";
 import gardening from "@/assets/photos/gardening.jpg";
@@ -17,9 +17,10 @@ export type Photo = {
 // Stock photos from Unsplash (free Unsplash License). Sources are listed in
 // src/assets/photos/CREDITS.md. Swap for the client's own photos before launch.
 export const photos = {
-  companionVisit: {
-    src: companionVisit,
-    alt: "Companion sharing a laugh with an elderly woman at home",
+  heroSupport: {
+    src: heroSupport,
+    alt: "Companion holding an elderly woman's hands as she laughs in her armchair",
+    position: "72% 40%",
   },
   aboutGarden: {
     src: aboutGarden,
