@@ -28,18 +28,17 @@ const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
 export const metadata: Metadata = {
   title: {
     template: "%s | Home Companion",
-    default: "Home Companion | Compassionate Home Support & Companionship in Bristol & South West",
+    default: "Home Companion | Independent Support Worker in Nottingham & Surrounding Areas",
   },
   description:
-    "Trusted, DBS-checked companionship and home support services across Bristol and the South West. From taking trips and appointments to light gardening, housework, and dog walking.",
+    "Friendly, reliable support for older people across Nottingham: transport to appointments, shopping and errands, companionship and outings, community activities and prescription collection.",
   keywords: [
-    "Home companionship Bristol",
-    "Elderly home support South West",
-    "Companion carer Bristol",
-    "DBS checked companions",
-    "Senior appointment escort Bristol",
-    "Gardening and housework support",
-    "Dog walking for seniors Bristol",
+    "Independent support worker Nottingham",
+    "Elderly companionship Nottingham",
+    "Transport to appointments Nottingham",
+    "Shopping help for older people",
+    "Prescription collection Nottingham",
+    "DBS checked support worker",
   ],
   authors: [{ name: "Home Companion" }],
   metadataBase: new URL(siteUrl),
@@ -51,7 +50,7 @@ export const metadata: Metadata = {
     siteName: "Home Companion",
     title: "Home Companion | Compassionate Home Support & Companionship",
     description:
-      "Empowering independence with compassionate companionship across Bristol and the South West.",
+      "Friendly, reliable support for older people across Nottingham and surrounding areas.",
   },
 };
 

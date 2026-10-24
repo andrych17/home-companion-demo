@@ -13,7 +13,7 @@ import EnquiryForm from "@/components/EnquiryForm";
 export const metadata: Metadata = {
   title: "Contact Us & Make an Enquiry",
   description:
-    "Ask a question or make an enquiry for home companionship support across Bristol and the South West. Complimentary in-home meetings arranged.",
+    "Ask a question or make an enquiry about support for an older relative across Nottingham and surrounding areas. Free first visit.",
 };
 
 export default function ContactPage({
@@ -48,7 +48,7 @@ async function ContactContent({
         <div className="max-w-3xl space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/5 text-slate-800 text-[11px] font-semibold uppercase tracking-wider border border-slate-900/10">
             <MessageSquare className="w-3.5 h-3.5 text-sky-600" />
-            <span>Bristol Coordination Office</span>
+            <span>Get in Touch</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
             We are here to help your family find the{" "}
@@ -58,9 +58,8 @@ async function ContactContent({
             .
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed pt-2">
-            Whether you have a quick question about DBS vetting or wish to
-            arrange a complimentary in-home tea meeting, fill out our form below
-            or call our Bristol office directly.
+            Whether you have a quick question or want to arrange a free first
+            visit over a cup of tea, fill in the form below or simply call.
           </p>
         </div>
       </section>
@@ -87,20 +86,19 @@ async function ContactContent({
                 Prefer to speak to a human right away?
               </h3>
               <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                Our care coordinators know Bristol inside out and will happily
-                give you straightforward advice without high-pressure sales
-                tactics.
+                Friendly, straightforward advice from someone who knows
+                Nottingham well, with no pressure and no sales talk.
               </p>
               <div className="pt-2">
                 <a
-                  href="tel:01174960123"
+                  href="tel:07438318947"
                   className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/10 hover:bg-white/15 transition-colors border border-white/10"
                 >
                   <Phone className="w-5 h-5 text-sky-400 shrink-0" />
                   <div>
                     <div className="text-xs text-slate-400">Call Us (Mon–Sat)</div>
                     <div className="text-base font-bold text-white">
-                      0117 496 0123
+                      07438 318947
                     </div>
                   </div>
                 </a>
@@ -110,7 +108,7 @@ async function ContactContent({
             {/* Office location & hours */}
             <div className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-sm space-y-5">
               <h4 className="font-bold text-slate-900 text-base">
-                Bristol Coordination Hub
+                Areas & Hours
               </h4>
 
               <div className="space-y-4 text-xs sm:text-sm text-slate-600">
@@ -118,10 +116,9 @@ async function ContactContent({
                   <MapPin className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
                   <div>
                     <div className="font-semibold text-slate-900">
-                      Bristol Office
+                      Nottingham & Surrounding Areas
                     </div>
-                    <div>Suite 4, 1 Example Lane</div>
-                    <div>Bristol, BS0 0AA</div>
+                    <div>Home visits across NG1 to NG16</div>
                   </div>
                 </div>
 

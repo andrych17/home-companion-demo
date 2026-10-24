@@ -1,11 +1,12 @@
 import type { StaticImageData } from "next/image";
-import heroSupport from "@/assets/photos/hero-support.jpg";
+import heroWindow from "@/assets/photos/hero-window.jpg";
+import flyerSupport from "@/assets/photos/flyer-support.jpg";
 import aboutGarden from "@/assets/photos/about-garden.jpg";
+import transport from "@/assets/photos/transport.jpg";
+import shopping from "@/assets/photos/shopping.jpg";
 import trips from "@/assets/photos/trips.jpg";
-import gardening from "@/assets/photos/gardening.jpg";
-import appointments from "@/assets/photos/appointments.jpg";
-import housework from "@/assets/photos/housework.jpg";
-import dogWalking from "@/assets/photos/dog-walking.jpg";
+import community from "@/assets/photos/community.jpg";
+import prescriptions from "@/assets/photos/prescriptions.jpg";
 
 export type Photo = {
   src: StaticImageData;
@@ -14,38 +15,45 @@ export type Photo = {
   position?: string;
 };
 
-// Stock photos from Unsplash (free Unsplash License). Sources are listed in
+// heroWindow and flyerSupport come from the client's own artwork; the rest are
+// Unsplash stock (free Unsplash License). Sources are listed in
 // src/assets/photos/CREDITS.md. Swap for the client's own photos before launch.
 export const photos = {
-  heroSupport: {
-    src: heroSupport,
-    alt: "Companion holding an elderly woman's hands as she laughs in her armchair",
-    position: "72% 40%",
+  heroWindow: {
+    src: heroWindow,
+    alt: "Elderly woman resting her chin on her hand, looking out of a window",
+    position: "50% 25%",
+  },
+  flyerSupport: {
+    src: flyerSupport,
+    alt: "Support worker walking arm in arm with a smiling elderly woman",
   },
   aboutGarden: {
     src: aboutGarden,
     alt: "Smiling elderly woman holding hands with a friend outside a brick terrace",
     position: "50% 30%",
   },
-  trips: {
+  transport: {
+    src: transport,
+    alt: "Elderly man getting into the passenger seat of a car",
+    position: "50% 35%",
+  },
+  shopping: {
+    src: shopping,
+    alt: "Older man choosing fresh produce at a market stall",
+  },
+  outings: {
     src: trips,
     alt: "Elderly couple walking arm in arm along a seaside promenade",
     position: "50% 72%",
   },
-  gardening: {
-    src: gardening,
-    alt: "Two older women working together in a vegetable garden",
+  community: {
+    src: community,
+    alt: "Group of older women dancing together at a community class",
+    position: "50% 30%",
   },
-  appointments: {
-    src: appointments,
-    alt: "Older couple listening to a doctor during an appointment",
-  },
-  housework: {
-    src: housework,
-    alt: "Elderly woman preparing a fresh salad in her kitchen",
-  },
-  dogWalking: {
-    src: dogWalking,
-    alt: "Elderly woman laughing as a small dog leans in to greet her",
+  prescriptions: {
+    src: prescriptions,
+    alt: "Pharmacist showing a pill bottle to an older woman at the counter",
   },
 } satisfies Record<string, Photo>;

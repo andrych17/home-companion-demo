@@ -1,56 +1,38 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { LucideIcon, ArrowRight, Check } from "lucide-react";
-import type { Photo } from "@/lib/photos";
+import { ArrowRight, Check } from "lucide-react";
+import { serviceHref, type Service } from "@/lib/services";
 
-interface ServiceCardProps {
-  title: string;
-  href: string;
-  description: string;
-  icon: LucideIcon;
-  badge: string;
-  badgeColor?: string;
-  highlights: string[];
-  image?: Photo;
-}
+export default function ServiceCard({ service }: { service: Service }) {
+  const { title, summary: description, icon: Icon, badge, highlights, photo: image } = service;
+  const href = serviceHref(service);
+  const badgeColor = service.accent.badge;
 
-export default function ServiceCard({
-  title,
-  href,
-  description,
-  icon: Icon,
-  badge,
-  badgeColor = "bg-sky-50 text-sky-700 border-sky-100",
-  highlights,
-  image,
-}: ServiceCardProps) {
   return (
     <div className="double-bezel bg-slate-900/5 ring-1 ring-slate-900/10 group hover:-translate-y-1 spring-transition flex flex-col">
       <div className="double-bezel-inner bg-white p-6 sm:p-7 flex flex-col justify-between h-full shadow-sm overflow-hidden">
         <div>
-          {image && (
-            <div className="relative -mx-6 -mt-6 sm:-mx-7 sm:-mt-7 mb-5 aspect-[16/10] overflow-hidden bg-slate-100">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                placeholder="blur"
-                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                className="object-cover group-hover:scale-105 spring-transition"
-                style={{ objectPosition: image.position }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
-              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-                <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20">
-                  From £24/hr
-                </span>
-                <span className="text-[10px] font-medium text-slate-200">
-                  Min 1 hr
-                </span>
-              </div>
+          <div className="relative -mx-6 -mt-6 sm:-mx-7 sm:-mt-7 mb-5 aspect-[16/10] overflow-hidden bg-slate-100">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              placeholder="blur"
+              sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+              className="object-cover group-hover:scale-105 spring-transition"
+              style={{ objectPosition: image.position }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
+            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+              <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20">
+                From £24/hr
+              </span>
+              <span className="text-[10px] font-medium text-slate-200">
+                Min 1 hr
+              </span>
             </div>
-          )}
+          </div>
 
           <div className="flex items-center justify-between gap-2 mb-3">
             <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-800 group-hover:bg-[#0F172A] group-hover:text-white transition-colors duration-300">

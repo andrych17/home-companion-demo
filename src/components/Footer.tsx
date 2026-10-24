@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Logo from "./Logo";
+import { services, serviceHref } from "@/lib/services";
+import { AREA, PHONE_DISPLAY, PHONE_HREF, VALUES } from "@/lib/site";
 import {
   ShieldCheck,
   CheckCircle2,
@@ -35,8 +37,8 @@ export default function Footer() {
           <div className="flex items-center gap-3 p-3 rounded-2xl bg-slate-900/60 border border-slate-800">
             <MapPin className="w-6 h-6 text-amber-400 shrink-0" />
             <div className="text-xs">
-              <div className="font-semibold text-white">Local Bristol Team</div>
-              <div className="text-slate-400">South West based</div>
+              <div className="font-semibold text-white">Local to Nottingham</div>
+              <div className="text-slate-400">& surrounding areas</div>
             </div>
           </div>
           <div className="flex items-center gap-3 p-3 rounded-2xl bg-slate-900/60 border border-slate-800">
@@ -54,14 +56,13 @@ export default function Footer() {
           <div className="lg:col-span-2 space-y-4">
             <Logo variant="dark" />
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed mt-4">
-              Providing heartfelt companionship and practical home support
-              across Bristol and the South West. Helping loved ones maintain
-              their independence, daily joy, and familiar comfort at home.
+              Independent support worker helping older people across
+              Nottingham stay independent, connected and happy at home.
             </p>
             <div className="pt-2">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 text-xs text-slate-300 border border-slate-700/60">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Accepting new client enquiries in BS1–BS40 & BA1–BA2</span>
+                <span>Taking new enquiries across NG1–NG16</span>
               </div>
             </div>
           </div>
@@ -72,46 +73,16 @@ export default function Footer() {
               Types of Support
             </h3>
             <ul className="space-y-2.5 text-sm">
-              <li>
-                <Link
-                  href="/types-of-support/trips"
-                  className="text-slate-400 hover:text-white transition-colors"
-                >
-                  Taking Trips & Outings
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/types-of-support/gardening"
-                  className="text-slate-400 hover:text-white transition-colors"
-                >
-                  Gardening & Outdoors
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/types-of-support/appointments"
-                  className="text-slate-400 hover:text-white transition-colors"
-                >
-                  Appointments Escort
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/types-of-support/housework"
-                  className="text-slate-400 hover:text-white transition-colors"
-                >
-                  Housework & Tidying
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/types-of-support/dog-walking"
-                  className="text-slate-400 hover:text-white transition-colors"
-                >
-                  Dog Walking & Pet Care
-                </Link>
-              </li>
+              {services.map((svc) => (
+                <li key={svc.slug}>
+                  <Link
+                    href={serviceHref(svc)}
+                    className="text-slate-400 hover:text-white transition-colors"
+                  >
+                    {svc.title}
+                  </Link>
+                </li>
+              ))}
               <li className="pt-1">
                 <Link
                   href="/types-of-support"
@@ -135,7 +106,7 @@ export default function Footer() {
                   href="/about"
                   className="text-slate-400 hover:text-white transition-colors"
                 >
-                  About Our Team
+                  About Us
                 </Link>
               </li>
               <li>
@@ -176,16 +147,16 @@ export default function Footer() {
           {/* Contact Direct */}
           <div>
             <h3 className="text-xs font-bold text-white uppercase tracking-wider mb-4">
-              Bristol Office
+              Get in Touch
             </h3>
             <div className="space-y-3 text-sm text-slate-400">
               <a
-                href="tel:01174960123"
+                href={PHONE_HREF}
                 className="flex items-start gap-2.5 hover:text-white transition-colors group"
               >
                 <Phone className="w-4 h-4 text-sky-400 mt-0.5 shrink-0" />
                 <span className="font-semibold text-white group-hover:text-sky-300">
-                  0117 496 0123
+                  {PHONE_DISPLAY}
                 </span>
               </a>
               <a
@@ -197,7 +168,7 @@ export default function Footer() {
               </a>
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-amber-400 mt-0.5 shrink-0" />
-                <span>1 Example Lane, Bristol BS0&nbsp;0AA</span>
+                <span>{AREA}</span>
               </div>
               <div className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-slate-500 mt-0.5 shrink-0" />
@@ -213,7 +184,7 @@ export default function Footer() {
 
         {/* Bottom copyright and legal */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© 2026 Home Companion. Dedicated companionship and home support across Bristol and South West.</p>
+          <p>© 2026 Home Companion · {VALUES.join(" | ")}</p>
           <div className="flex items-center gap-6">
             <Link href="/contact" className="hover:text-slate-400 transition-colors">
               Make an Enquiry
@@ -222,7 +193,7 @@ export default function Footer() {
               Privacy & Safeguarding
             </Link>
             <Link href="/areas" className="hover:text-slate-400 transition-colors">
-              Bristol & South West
+              Nottingham & surrounding areas
             </Link>
           </div>
         </div>

@@ -26,7 +26,7 @@ export default function AgencyComparison() {
     {
       feature: "Scope of Companionship",
       standard: "Clinical tasks only; no leisure or outings",
-      homeCompanion: "Outings, scenic drives, gardening, tea & joyful conversation",
+      homeCompanion: "Outings, shopping, community groups, tea & good conversation",
     },
   ];
 
@@ -57,7 +57,7 @@ export default function AgencyComparison() {
             </div>
             <div className="col-span-4 text-sky-900 uppercase tracking-wider text-[11px] font-extrabold flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-sky-600 inline-block" />
-              <span>Home Companion Bristol</span>
+              <span>Independent Support Worker</span>
             </div>
           </div>
 

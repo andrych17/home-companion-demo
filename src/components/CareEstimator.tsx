@@ -2,22 +2,22 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/site";
 import {
-  Calendar,
   Clock,
   Car,
-  CalendarCheck,
-  Flower2,
-  Sparkles,
   ArrowRight,
   CheckCircle2,
   Phone,
   Shield,
+  HeartHandshake,
+  ShoppingBasket,
+  Users,
 } from "lucide-react";
 
 export default function CareEstimator() {
   const [frequency, setFrequency] = useState<number>(2); // 1, 2, or 3+ days
-  const [focus, setFocus] = useState<string>("trips"); // trips, appointments, housework, gardening
+  const [focus, setFocus] = useState<string>("outings");
 
   const frequencies = [
     { days: 1, label: "1 Day / Week", hours: "2–3 hrs/wk", popular: false },
@@ -27,28 +27,28 @@ export default function CareEstimator() {
 
   const focusOptions = [
     {
-      id: "trips",
-      label: "Outings & Trips",
-      icon: Car,
-      note: "Harbourside walks, garden centres, scenic drives",
+      id: "outings",
+      label: "Company & Outings",
+      icon: HeartHandshake,
+      note: "Chats at home, cafés, parks and days out",
     },
     {
       id: "appointments",
-      label: "Hospital Escort",
-      icon: CalendarCheck,
-      note: "Southmead, BRI, GP clinics & note-taking",
+      label: "Appointments",
+      icon: Car,
+      note: "QMC, City Hospital, GP clinics & notes",
     },
     {
-      id: "housework",
-      label: "Home & Fresh Meals",
-      icon: Sparkles,
-      note: "Warm lunches, fresh linens & light tidying",
+      id: "shopping",
+      label: "Shopping & Errands",
+      icon: ShoppingBasket,
+      note: "Weekly shop, post office, bank & prescriptions",
     },
     {
-      id: "gardening",
-      label: "Garden & Pet Care",
-      icon: Flower2,
-      note: "Patio care, dog walking & fresh outdoor air",
+      id: "community",
+      label: "Community Activities",
+      icon: Users,
+      note: "Lunch clubs, classes and coffee mornings",
     },
   ];
 
@@ -215,11 +215,11 @@ export default function CareEstimator() {
                   </Link>
 
                   <a
-                    href="tel:01174960123"
+                    href={PHONE_HREF}
                     className="w-full flex items-center justify-center gap-2 py-2.5 text-xs text-slate-300 hover:text-white font-medium transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5 text-sky-400" />
-                    <span>Or call 0117 496 0123 for immediate advice</span>
+                    <span>Or call {PHONE_DISPLAY} for friendly advice</span>
                   </a>
                 </div>
               </div>

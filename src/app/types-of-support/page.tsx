@@ -1,108 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
-import {
-  Car,
-  Flower2,
-  CalendarCheck,
-  Sparkles,
-  Dog,
-  ShieldCheck,
-  ArrowRight,
-} from "lucide-react";
+import { ShieldCheck, ArrowRight } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
-import { photos } from "@/lib/photos";
+import { services } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "Types of Support | Tailored Home Companionship Bristol",
+  title: "Types of Support",
   description:
-    "Explore our 5 core companion support services: Taking Trips, Gardening, Appointments, Housework, and Dog Walking across Bristol and the South West.",
+    "Transport to appointments, shopping and errands, companionship and outings, community activities and prescription collection across Nottingham and surrounding areas.",
 };
 
 export default function TypesOfSupportPage() {
-  const services = [
-    {
-      title: "Taking Trips",
-      href: "/types-of-support/trips",
-      image: photos.trips,
-      description:
-        "Enjoying days out, scenic country drives, garden centres, family visits, or weekly shopping around Bristol.",
-      icon: Car,
-      badge: "Outings & Leisure",
-      badgeColor: "bg-rose-50 text-rose-700 border-rose-100",
-      highlights: [
-        "Door-to-door escort in clean, insured vehicles",
-        "Trips to Bristol Harbourside, Clifton, and Bath",
-        "Gentle assistance with shopping bags and pushchairs",
-        "Flexible half-day and full-afternoon excursions",
-      ],
-    },
-    {
-      title: "Gardening Support",
-      href: "/types-of-support/gardening",
-      image: photos.gardening,
-      description:
-        "Light garden maintenance, planting seasonal flowers, patio pot care, and enjoying the fresh air together in the garden.",
-      icon: Flower2,
-      badge: "Outdoor Wellbeing",
-      badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-100",
-      highlights: [
-        "Weeding, pruning, and watering pots and raised beds",
-        "Sweeping paths and patio spaces to prevent slips",
-        "Encouraging safe outdoor exercise and fresh air",
-        "Working alongside your loved one at their own pace",
-      ],
-    },
-    {
-      title: "Appointments Escort",
-      href: "/types-of-support/appointments",
-      image: photos.appointments,
-      description:
-        "Reliable door-to-door accompaniment for GP appointments, hospital clinics, hairdressers, and optician visits.",
-      icon: CalendarCheck,
-      badge: "Healthcare & Errands",
-      badgeColor: "bg-amber-50 text-amber-700 border-amber-100",
-      highlights: [
-        "Escort to Southmead Hospital, BRI, and local GPs",
-        "Patience in waiting rooms and calm support throughout",
-        "Writing down doctor notes to share with family",
-        "Safe return home with prescription collection",
-      ],
-    },
-    {
-      title: "Housework & Tidying",
-      href: "/types-of-support/housework",
-      image: photos.housework,
-      description:
-        "Light household tasks to keep home safe, clean, and welcoming—from fresh linens and laundry to making warm lunches.",
-      icon: Sparkles,
-      badge: "Home Comfort",
-      badgeColor: "bg-sky-50 text-sky-700 border-sky-100",
-      highlights: [
-        "Light cleaning, vacuuming, and dusting living spaces",
-        "Washing, ironing, and changing bed sheets",
-        "Nutritious light meal and hot tea preparation",
-        "De-cluttering walkways to prevent trip hazards",
-      ],
-    },
-    {
-      title: "Dog Walking & Pet Care",
-      href: "/types-of-support/dog-walking",
-      image: photos.dogWalking,
-      description:
-        "Keeping beloved pets active, happy, and fed when walking or bending has become difficult for their owners.",
-      icon: Dog,
-      badge: "Pet Companionship",
-      badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-100",
-      highlights: [
-        "Gentle neighborhood walks for family dogs",
-        "Feeding, brushing, and fresh water replenishment",
-        "Accompanying owners on walks with their dogs",
-        "Transport to local Bristol veterinary clinics",
-      ],
-    },
-  ];
-
   return (
     <div className="space-y-20 py-12 sm:py-20 pb-24">
       {/* Header */}
@@ -119,9 +28,8 @@ export default function TypesOfSupportPage() {
             .
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed pt-2">
-            We provide practical, social, and emotional support designed around
-            what matters most to your loved one. Explore our 5 core services
-            below to see how we can assist.
+            Practical help and good company, planned around what matters most
+            to your loved one. Here are the five ways we help.
           </p>
         </div>
       </section>
@@ -130,11 +38,11 @@ export default function TypesOfSupportPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.slice(0, 3).map((s) => (
-            <ServiceCard key={s.title} {...s} />
+            <ServiceCard key={s.slug} service={s} />
           ))}
           <div className="md:col-span-2 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.slice(3, 5).map((s) => (
-              <ServiceCard key={s.title} {...s} />
+              <ServiceCard key={s.slug} service={s} />
             ))}
           </div>
         </div>

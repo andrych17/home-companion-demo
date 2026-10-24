@@ -7,7 +7,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Find clear answers on companion matching, Enhanced DBS vetting, hourly rates, visit lengths, and coverage across Bristol and the South West.",
+    "Answers on DBS checks, hourly rates, visit lengths, the five services and coverage across Nottingham and surrounding areas.",
 };
 
 export default function FAQPage() {
@@ -28,9 +28,8 @@ export default function FAQPage() {
             .
           </h1>
           <p className="text-lg text-slate-600 leading-relaxed pt-2">
-            Clear, honest information about how we work, vetting, visit
-            pricing, and how we care for your loved ones in Bristol and the
-            South West.
+            Straight answers about how visits work, DBS checks, pricing and
+            the help on offer across Nottingham and surrounding areas.
           </p>
         </div>
       </section>
@@ -53,9 +52,8 @@ export default function FAQPage() {
                 Can’t find the answer you’re looking for?
               </h2>
               <p className="text-slate-300 text-sm leading-relaxed">
-                Our local Bristol team is on hand Monday to Saturday to answer
-                any specific questions regarding your loved one’s unique
-                routine or medical circumstances.
+                Call or send a message, Monday to Saturday, and talk through
+                your loved one’s routine and what would help most.
               </p>
             </div>
 
@@ -67,11 +65,11 @@ export default function FAQPage() {
                 Ask a Question Online
               </Link>
               <a
-                href="tel:01174960123"
+                href="tel:07438318947"
                 className="px-6 py-3.5 rounded-full bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-700 flex items-center justify-center gap-2 transition-all"
               >
                 <Phone className="w-4 h-4 text-sky-400" />
-                <span>Call 0117 496 0123</span>
+                <span>Call 07438 318947</span>
               </a>
             </div>
           </div>
