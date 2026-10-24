@@ -43,7 +43,7 @@ export default function Logo({ variant = "light", className = "" }: LogoProps) {
   return (
     <Link
       href="/"
-      aria-label="Home Companion Demo, home"
+      aria-label="Home Companion, home"
       className={`group inline-flex shrink-0 items-center gap-2.5 whitespace-nowrap ${className}`}
     >
       <LogoMark
@@ -57,13 +57,6 @@ export default function Logo({ variant = "light", className = "" }: LogoProps) {
         }`}
       >
         Home Companion
-      </span>
-      <span
-        className={`rounded-full px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-[0.16em] ring-1 ${
-          isDark ? "text-slate-300 ring-white/20" : "text-slate-500 ring-slate-900/15"
-        }`}
-      >
-        Demo
       </span>
     </Link>
   );

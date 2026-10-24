@@ -19,7 +19,7 @@ import { photos } from "@/lib/photos";
 export const metadata: Metadata = {
   title: "About Us | Dedicated Companionship Across Bristol & South West",
   description:
-    "Learn about Home Companion Demo, our founding mission, rigorous companion vetting, and how we bring dignified companionship to homes across Bristol.",
+    "Learn about Home Companion, our founding mission, rigorous companion vetting, and how we bring dignified companionship to homes across Bristol.",
 };
 
 export default function AboutPage() {
@@ -57,7 +57,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="col-span-12 lg:col-span-7 space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900/5 text-slate-800 text-[11px] font-semibold uppercase tracking-wider border border-slate-900/10">
-              <span>About Home Companion Demo</span>
+              <span>About Home Companion</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-950 tracking-tight leading-tight">
               Founded on the belief that everyone deserves a{" "}

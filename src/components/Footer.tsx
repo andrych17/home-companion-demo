@@ -213,7 +213,7 @@ export default function Footer() {
 
         {/* Bottom copyright and legal */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-          <p>© 2026 Home Companion Demo. Demo site: the business, contact details, and reviews are fictional.</p>
+          <p>© 2026 Home Companion. Dedicated companionship and home support across Bristol and South West.</p>
           <div className="flex items-center gap-6">
             <Link href="/contact" className="hover:text-slate-400 transition-colors">
               Make an Enquiry

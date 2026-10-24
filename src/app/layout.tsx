@@ -27,8 +27,8 @@ const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Home Companion Demo",
-    default: "Home Companion Demo | Compassionate Home Support & Companionship in Bristol & South West",
+    template: "%s | Home Companion",
+    default: "Home Companion | Compassionate Home Support & Companionship in Bristol & South West",
   },
   description:
     "Trusted, DBS-checked companionship and home support services across Bristol and the South West. From taking trips and appointments to light gardening, housework, and dog walking.",
@@ -41,16 +41,15 @@ export const metadata: Metadata = {
     "Gardening and housework support",
     "Dog walking for seniors Bristol",
   ],
-  authors: [{ name: "Home Companion Demo" }],
+  authors: [{ name: "Home Companion" }],
   metadataBase: new URL(siteUrl),
-  // Demo site with fictional details: keep it out of search results
   robots: { index: false, follow: false },
   openGraph: {
     type: "website",
     locale: "en_GB",
     url: siteUrl,
-    siteName: "Home Companion Demo",
-    title: "Home Companion Demo | Compassionate Home Support & Companionship",
+    siteName: "Home Companion",
+    title: "Home Companion | Compassionate Home Support & Companionship",
     description:
       "Empowering independence with compassionate companionship across Bristol and the South West.",
   },

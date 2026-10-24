@@ -58,9 +58,6 @@ export default function Preloader() {
           <span className="font-serif text-3xl font-medium leading-none tracking-tight text-slate-950">
             Home Companion
           </span>
-          <span className="rounded-full px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-500 ring-1 ring-slate-900/15">
-            Demo
-          </span>
         </div>
 
         <div className="w-40 h-1 rounded-full bg-slate-200 overflow-hidden">

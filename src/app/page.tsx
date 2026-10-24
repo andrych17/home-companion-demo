@@ -12,22 +12,18 @@ import {
   ArrowRight,
   Phone,
   CheckCircle2,
-  Heart,
   Check,
 } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import { photos } from "@/lib/photos";
 import BentoWhyUs from "@/components/BentoWhyUs";
-import PostcodeChecker from "@/components/PostcodeChecker";
 import TrustTicker from "@/components/TrustTicker";
 import CareEstimator from "@/components/CareEstimator";
-import AgencyComparison from "@/components/AgencyComparison";
-import HowItWorks from "@/components/HowItWorks";
 
 export default function HomePage() {
-  const services = [
+  const featuredServices = [
     {
-      title: "Taking Trips",
+      title: "Taking Trips & Outings",
       href: "/types-of-support/trips",
       image: photos.trips,
       description:
@@ -42,26 +38,11 @@ export default function HomePage() {
       ],
     },
     {
-      title: "Gardening Support",
-      href: "/types-of-support/gardening",
-      image: photos.gardening,
-      description:
-        "Light garden maintenance, seasonal flowers, patio pot care, and fresh outdoor air together.",
-      icon: Flower2,
-      badge: "Outdoor Wellbeing",
-      badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-100",
-      highlights: [
-        "Weeding, pruning & watering pots",
-        "Sweeping paths to prevent slips",
-        "Gentle outdoor exercise",
-      ],
-    },
-    {
       title: "Appointments Escort",
       href: "/types-of-support/appointments",
       image: photos.appointments,
       description:
-        "Reliable door-to-door accompaniment for GP, Southmead & BRI hospital visits and opticians.",
+        "Reliable door-to-door accompaniment for GP clinics, Southmead, and BRI hospital appointments.",
       icon: CalendarCheck,
       badge: "Healthcare & Errands",
       badgeColor: "bg-amber-50 text-amber-700 border-amber-100",
@@ -72,11 +53,11 @@ export default function HomePage() {
       ],
     },
     {
-      title: "Housework & Tidying",
+      title: "Home Support & Garden",
       href: "/types-of-support/housework",
       image: photos.housework,
       description:
-        "Light household tasks to keep home safe and welcoming—fresh linens, laundry, and warm lunches.",
+        "Light household tasks to keep home safe and welcoming—fresh linens, warm lunches, and patio care.",
       icon: Sparkles,
       badge: "Home Comfort",
       badgeColor: "bg-sky-50 text-sky-700 border-sky-100",
@@ -84,21 +65,6 @@ export default function HomePage() {
         "Light cleaning & fresh bed linens",
         "Nutritious warm tea & lunch prep",
         "De-cluttering walkways for safety",
-      ],
-    },
-    {
-      title: "Dog Walking & Pet Care",
-      href: "/types-of-support/dog-walking",
-      image: photos.dogWalking,
-      description:
-        "Keeping beloved pets active, happy, and fed when walking or bending has become difficult.",
-      icon: Dog,
-      badge: "Pet Companionship",
-      badgeColor: "bg-indigo-50 text-indigo-700 border-indigo-100",
-      highlights: [
-        "Gentle neighbourhood walks",
-        "Feeding, brushing & fresh water",
-        "Transport to local Bristol vets",
       ],
     },
   ];
@@ -131,16 +97,16 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="space-y-20 sm:space-y-28 pb-24 overflow-hidden">
+    <div className="space-y-16 sm:space-y-20 pb-20 overflow-hidden">
       {/* 1. HERO SECTION (Asymmetric, Anti-AI-slop design with Ambient Glow) */}
-      <section className="relative pt-8 sm:pt-16">
+      <section className="relative pt-6 sm:pt-14">
         {/* Subtle Ambient Radial Glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-[radial-gradient(ellipse_60%_50%_at_50%_-10%,rgba(14,165,233,0.12),rgba(255,255,255,0))] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content (col-span-12 lg:col-span-7) */}
-            <div className="col-span-12 lg:col-span-7 space-y-6">
+            <div className="col-span-12 lg:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 text-slate-800 text-[11px] font-semibold uppercase tracking-wider border border-slate-900/10">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>★ 4.9/5 Rated by 80+ Bristol Families • DBS Vetted</span>
@@ -182,7 +148,7 @@ export default function HomePage() {
               </div>
 
               {/* Social Proof & Trust Badges */}
-              <div className="pt-6 border-t border-slate-200/80 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-slate-600 font-medium">
+              <div className="pt-5 border-t border-slate-200/80 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-slate-600 font-medium">
                 <div className="flex items-center gap-1.5 text-amber-500 font-bold">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
@@ -294,9 +260,9 @@ export default function HomePage() {
       {/* 2. TRUST & CREDIBILITY TICKER */}
       <TrustTicker />
 
-      {/* 3. KEY SERVICES SECTION */}
+      {/* 3. CORE SERVICES SECTION (Compact 3-Card Showcase) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
+        <div className="text-center max-w-2xl mx-auto space-y-2.5 mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-800 text-xs font-semibold uppercase tracking-wider border border-sky-100">
             <span>Tailored Home Support</span>
           </div>
@@ -308,41 +274,33 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* 5 Core Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.slice(0, 3).map((s) => (
+        {/* 3 Core Featured Services */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {featuredServices.map((s) => (
             <ServiceCard key={s.title} {...s} />
           ))}
-          <div className="md:col-span-2 lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services.slice(3, 5).map((s) => (
-              <ServiceCard key={s.title} {...s} />
-            ))}
-          </div>
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-8 text-center">
           <Link
             href="/types-of-support"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-sky-700 hover:text-sky-900 underline underline-offset-4"
           >
-            <span>Compare all 5 support types & pricing details</span>
+            <span>Explore all 5 support types including gardening & pet care</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
 
-      {/* 4. AGENCY COMPARISON MATRIX */}
-      <AgencyComparison />
-
-      {/* 5. INTERACTIVE CARE ESTIMATOR (Dynamic Calculator) */}
+      {/* 4. INTERACTIVE CARE ESTIMATOR (Dynamic Calculator) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <CareEstimator />
       </section>
 
-      {/* 6. WHY CHOOSE US (Asymmetric Bento Grid) */}
+      {/* 5. WHY CHOOSE US (Asymmetric Bento Grid) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="space-y-3 max-w-xl">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+          <div className="space-y-2 max-w-xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold uppercase tracking-wider border border-emerald-100">
               <span>The Home Companion Difference</span>
             </div>
@@ -367,17 +325,9 @@ export default function HomePage() {
         <BentoWhyUs />
       </section>
 
-      {/* 7. HOW IT WORKS (3 Visual Steps) */}
-      <HowItWorks />
-
-      {/* 8. POSTCODE & AREA COVERAGE PREVIEW */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <PostcodeChecker />
-      </section>
-
-      {/* 9. TESTIMONIALS (PREVIEW) */}
+      {/* 6. TESTIMONIALS (PREVIEW) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
+        <div className="text-center max-w-2xl mx-auto space-y-2.5 mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-semibold uppercase tracking-wider border border-amber-100">
             <span>Client & Family Feedback</span>
           </div>
@@ -426,7 +376,7 @@ export default function HomePage() {
           ))}
         </div>
 
-        <div className="mt-10 text-center">
+        <div className="mt-8 text-center">
           <Link
             href="/testimonials"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900 hover:text-sky-700"
@@ -437,10 +387,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 10. CALL TO ACTION (ENQUIRY ISLAND) */}
+      {/* 7. COMPACT CALL TO ACTION WITH POSTCODE HIGHLIGHT */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="p-1.5 rounded-[2.5rem] bg-slate-900/5 ring-1 ring-slate-900/10">
-          <div className="bg-[#0F172A] text-white rounded-[calc(2.5rem-0.375rem)] p-8 sm:p-12 lg:p-14 relative overflow-hidden shadow-xl">
+          <div className="bg-[#0F172A] text-white rounded-[calc(2.5rem-0.375rem)] p-8 sm:p-12 relative overflow-hidden shadow-xl">
             {/* Ambient Glow */}
             <div className="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 w-96 h-96 rounded-full bg-sky-500/15 blur-3xl pointer-events-none" />
             <div className="absolute left-0 top-0 -translate-x-1/4 -translate-y-1/4 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
@@ -449,13 +399,13 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-sky-400 text-xs font-semibold uppercase tracking-wider border border-slate-700">
                 <span>Free, Friendly In-Home Consultation</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
                 Give your loved one companionship, laughter, and independence.
               </h2>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Contact our friendly Bristol team today. We’ll discuss your loved
+                Contact our Bristol coordination team today. We’ll discuss your loved
                 one’s routine and arrange a relaxed, zero-pressure introductory
-                tea chat.
+                tea chat. Covering BS1–BS40 and Bath BA1/BA2.
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -478,9 +428,9 @@ export default function HomePage() {
                 </a>
               </div>
 
-              <div className="text-[11px] text-slate-400 pt-2 flex items-center gap-2">
+              <div className="text-[11px] text-slate-400 pt-1 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>Average team callback response: under 2 hours</span>
+                <span>Average callback response: under 2 hours • No contract lock-in</span>
               </div>
             </div>
           </div>
