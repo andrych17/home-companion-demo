@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Preloader from "@/components/Preloader";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -66,6 +67,7 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} ${newsreader.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#FBFBFC] text-slate-900 selection:bg-sky-100 selection:text-sky-900">
+        <Preloader />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

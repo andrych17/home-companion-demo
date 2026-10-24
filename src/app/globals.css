@@ -44,3 +44,43 @@ body {
 .spring-transition {
   transition: all 0.35s cubic-bezier(0.32, 0.72, 0, 1);
 }
+
+/* First-load preloader (see components/Preloader.tsx) */
+.preloader {
+  /* Failsafe: hides the overlay even if JavaScript never runs */
+  animation: preloader-failsafe 0.4s ease 4s forwards;
+}
+
+.preloader-heart {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .preloader-heart {
+    animation: preloader-beat 1.2s cubic-bezier(0.32, 0.72, 0, 1) infinite;
+  }
+
+  .preloader-bar {
+    animation: preloader-slide 1.3s cubic-bezier(0.32, 0.72, 0, 1) infinite;
+  }
+}
+
+@keyframes preloader-failsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@keyframes preloader-beat {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(1.15); }
+  60% { transform: scale(0.97); }
+}
+
+@keyframes preloader-slide {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(300%); }
+}
